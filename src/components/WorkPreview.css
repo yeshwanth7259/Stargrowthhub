@@ -137,12 +137,28 @@
   }
 }
 
-@media (max-width: 576px) {
-  .work-card {
-    min-width: 280px;
+@media (max-width: 768px) {
+  .work-preview-right {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    padding-bottom: 0;
   }
   
   .work-carousel {
-    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    gap: 2.5rem;
+  }
+
+  .work-card {
+    min-width: 100%;
+    width: 100%;
+    scroll-snap-align: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .work-preview-section {
+    padding: 5rem 0;
   }
 }

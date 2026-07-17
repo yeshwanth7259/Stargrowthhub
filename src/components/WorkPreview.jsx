@@ -68,8 +68,8 @@ const WorkPreview = () => {
               <motion.div 
                 className="work-card"
                 key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 + 0.2, duration: 0.5 }}
               >
