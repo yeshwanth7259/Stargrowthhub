@@ -55,9 +55,9 @@ const Footer = () => {
           <h4 className="footer-title">Let's Talk Growth</h4>
           <p className="footer-desc">Have a project in mind? Let's make it happen.</p>
           <div className="contact-info">
-            <p><FaPhoneAlt className="footer-contact-icon" /> +1 123 456 65710</p>
-            <p><FaEnvelope className="footer-contact-icon" /> hello@stargrowthhub.com</p>
-            <p><FaMapMarkerAlt className="footer-contact-icon" /> Bangalore, India</p>
+            <p><a href="tel:+918904823979" style={{color: 'inherit', textDecoration: 'none'}}><FaPhoneAlt className="footer-contact-icon" /> +91 89048 23979</a></p>
+            <p><FaEnvelope className="footer-contact-icon" /> stargrowthhub@gmail.com</p>
+            <p><FaMapMarkerAlt className="footer-contact-icon" /> Bengaluru, India</p>
           </div>
           <Link to="/contact" className="btn btn-primary footer-btn">
             Get a Free Quote

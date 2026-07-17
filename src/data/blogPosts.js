@@ -7,6 +7,42 @@
 
 const blogPosts = [
   {
+    id: 101,
+    slug: "the-future-of-seo-in-2024",
+    title: "The Future of SEO in 2024: AI and Search Intent",
+    metaDescription: "Discover how Artificial Intelligence and evolving search intent are fundamentally changing the SEO landscape.",
+    keyword: "SEO AI 2024",
+    category: "SEO",
+    readTime: "5 min read",
+    date: "July 12, 2024",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop",
+    content: "<p>Artificial intelligence is completely reshaping how we think about SEO in 2024. Search engines are evolving beyond simple keyword matching to understanding true search intent and conversational queries.</p><h2>The Role of AI in Search</h2><p>As AI becomes more integrated into search engines, content that simply repeats keywords will no longer cut it. High-quality, deeply informative content that directly answers the user's underlying question is the future.</p>"
+  },
+  {
+    id: 102,
+    slug: "mastering-social-media-marketing-for-b2b-brands",
+    title: "Mastering Social Media Marketing for B2B Brands",
+    metaDescription: "Why LinkedIn is no longer just a resume platform, but the ultimate lead generation machine.",
+    keyword: "B2B social media marketing",
+    category: "SOCIAL MEDIA",
+    readTime: "4 min read",
+    date: "July 08, 2024",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1000&auto=format&fit=crop",
+    content: "<p>Social media for B2B brands isn't just about posting company updates anymore. It's about establishing thought leadership, building relationships, and ultimately generating high-quality leads.</p><h2>Why LinkedIn Matters</h2><p>LinkedIn has transformed into a vibrant community where professionals share insights and seek solutions. By leveraging personal branding and engaging content, B2B companies can see unprecedented ROI from their social strategies.</p>"
+  },
+  {
+    id: 103,
+    slug: "ppc-vs-organic-seo-which-drives-better-roi",
+    title: "PPC vs. Organic SEO: Which Drives Better ROI?",
+    metaDescription: "An in-depth analysis of paid advertising versus organic search traffic, and how to balance both.",
+    keyword: "PPC vs Organic SEO",
+    category: "PAID ADVERTISING",
+    readTime: "6 min read",
+    date: "July 03, 2024",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    content: "<p>The debate between PPC and SEO is as old as digital marketing itself. While PPC offers immediate visibility, SEO builds long-term sustainable traffic.</p><h2>Finding the Balance</h2><p>The most successful digital marketing strategies don't choose one over the other; they use both. PPC can drive immediate leads while your organic SEO strategy matures, creating a holistic approach that maximizes ROI across the board.</p>"
+  },
+  {
     id: 1,
     slug: "what-is-a-digital-marketing-agency-and-what-do-they-do",
     title: "What Is a Digital Marketing Agency and What Do They Do?",

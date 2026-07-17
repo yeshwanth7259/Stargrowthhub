@@ -129,10 +129,16 @@
 @media (max-width: 768px) {
   .testimonial-card {
     width: 320px;
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .testimonial-text {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    width: 280px;
   }
 }

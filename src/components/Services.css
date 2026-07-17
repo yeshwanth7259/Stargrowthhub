@@ -25,214 +25,182 @@
   line-height: 1.2;
 }
 
-/* --- Sticky Scroll Split Layout --- */
-.services-split-layout {
+/* --- CSS Stacking Cards --- */
+.services-stack-container {
   display: flex;
-  gap: 5rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 0; /* Gap is managed by offset and sticky */
+  padding-bottom: 5rem;
   position: relative;
 }
 
-/* Left Side: Scrolling List */
-.services-left-list {
+.stack-card {
+  position: sticky;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  transform-origin: top center;
+  transition: transform 0.3s;
+  /* Top offset is set dynamically via inline style in JSX */
+}
+
+.stack-card-inner {
+  display: flex;
+  background: var(--primary-black);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.8); /* Cast shadow on card below it */
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effects */
+.stack-card-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.05), transparent);
+  transition: left 0.7s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.stack-card:hover .stack-card-inner {
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.stack-card:hover .stack-card-inner::before {
+  left: 100%;
+}
+
+.stack-card-content {
   flex: 1;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding-bottom: 30vh; /* Extra space to scroll past the last item */
-  padding-top: 10vh;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 3;
 }
 
-.service-list-item {
-  display: flex;
-  gap: 3rem;
-  padding: 3rem;
-  background: rgba(20, 20, 20, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  min-height: 250px; /* Reduced from 45vh for a tighter look */
-  margin-bottom: 25vh; /* Added margin to force scroll space instead of empty height */
-  opacity: 0.3; /* Dim inactive items */
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale(0.95);
-  filter: grayscale(100%);
+.stack-card-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
-.service-list-item:last-child {
-  margin-bottom: 0;
+.stack-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  filter: grayscale(80%) brightness(0.6);
 }
 
-.service-list-item.active {
-  opacity: 1;
-  background: rgba(30, 30, 30, 0.8);
-  border-color: rgba(229, 9, 20, 0.5);
-  transform: scale(1) translateX(10px);
-  filter: grayscale(0%);
-  box-shadow: 0 20px 40px rgba(229, 9, 20, 0.2);
+.stack-card:hover .stack-card-image img {
+  transform: scale(1.05);
+  filter: grayscale(0%) brightness(1);
 }
 
-.service-list-icon {
-  font-size: 3.5rem; /* Increased size significantly */
+.image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--primary-black) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.stack-card-icon {
+  font-size: 3rem;
   color: var(--primary-red);
-  margin-top: 0;
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.6s, box-shadow 0.6s;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1.5rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 0.5rem;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: max-content;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease, background 0.4s ease;
 }
 
-.service-list-item.active .service-list-icon {
-  transform: scale(1.1) rotate(10deg);
+.stack-card:hover .stack-card-icon {
+  transform: translateY(-5px);
   background: rgba(229, 9, 20, 0.1);
-  border-color: rgba(229, 9, 20, 0.3);
-  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.2);
+  border-color: rgba(229, 9, 20, 0.2);
 }
 
-.service-list-content {
-  flex: 1;
-}
-
-.service-list-title {
-  font-size: 2.2rem; /* Increased title size */
-  font-weight: 900;
-  margin-bottom: 1rem;
+.stack-card-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
   color: var(--primary-white);
   letter-spacing: -0.5px;
 }
 
-.service-list-desc {
-  font-size: 1.25rem; /* Increased description size */
+.stack-card-desc {
+  font-size: 1.25rem;
   color: var(--text-gray);
-  line-height: 1.7;
-  margin-bottom: 2rem;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 90%;
 }
 
-.mobile-service-image {
-  display: none; /* Hidden on desktop */
-}
-
-/* Right Side: Sticky Viewer */
-.services-right-sticky {
-  flex: 1;
-  position: sticky;
-  top: 15vh; /* Stick just below the header */
-  height: 70vh; /* Take up a large chunk of the screen */
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.sticky-image-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: var(--tertiary-black);
-}
-
-.sticky-image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.sticky-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 10s ease;
-}
-
-/* Subtle continuous zoom on active image */
-.sticky-image-wrapper:hover img {
-  transform: scale(1.1);
-}
-
-.sticky-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(3,3,3,0.95) 100%);
-  pointer-events: none;
-}
-
-.sticky-image-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 4rem;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-  gap: 2rem;
-}
-
-.sticky-icon {
-  font-size: 4rem;
-  color: var(--primary-red);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sticky-image-content h3 {
-  font-size: 3rem;
-  font-weight: 900;
+.stack-card-link {
   color: var(--primary-white);
-  line-height: 1.1;
-  text-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  width: fit-content;
 }
 
-/* Responsive Mobile Fallback */
-@media (max-width: 992px) {
-  .services-split-layout {
+.stack-card-link:hover {
+  color: var(--primary-red);
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .stack-card {
+    height: auto;
+    min-height: auto;
+    position: relative; /* Disable sticky on mobile for better scrolling */
+    top: 0 !important; /* Override inline style */
+    margin-bottom: 2rem;
+  }
+  
+  .stack-card-inner {
     flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .services-left-list {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  
-  .services-right-sticky {
-    display: none; /* Hide the sticky area completely on mobile */
+    height: auto;
+    box-shadow: none;
   }
 
-  .service-list-item {
-    min-height: auto; /* Remove forced scroll height */
-    opacity: 1; /* Always fully visible */
-    transform: scale(1);
-    filter: grayscale(0%);
-    flex-direction: column;
-    padding: 2rem;
+  .stack-card-content {
+    padding: 2.5rem;
   }
-  
-  .mobile-service-image {
-    display: block; /* Show image inline on mobile */
-    width: 100%;
+
+  .stack-card-image {
     height: 250px;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
+  }
+
+  .stack-card-image img {
+    filter: grayscale(0%) brightness(0.8);
+  }
+
+  .image-overlay {
+    background: linear-gradient(180deg, var(--primary-black) 0%, transparent 40%);
   }
   
-  .mobile-service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .stack-card-title {
+    font-size: 2rem;
   }
 }

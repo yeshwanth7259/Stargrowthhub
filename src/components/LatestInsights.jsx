@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import { blogs } from '../data/blogs';
+import blogPosts from '../data/blogPosts';
 import './LatestInsights.css';
 
 const LatestInsights = () => {
   // Grab the first 3 blogs for the homepage
-  const recentBlogs = blogs.slice(0, 3);
+  const recentBlogs = blogPosts.slice(0, 3);
 
   return (
     <section className="latest-insights section-padding">
@@ -38,7 +38,7 @@ const LatestInsights = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.3 }}
           >
-            <Link to="/insights" className="btn btn-outline view-all-btn">
+            <Link to="/blog" className="btn btn-outline view-all-btn">
               View All Articles
             </Link>
           </motion.div>
@@ -65,8 +65,8 @@ const LatestInsights = () => {
                   <span>{blog.readTime}</span>
                 </div>
                 <h3 className="insight-title">{blog.title}</h3>
-                <p className="insight-excerpt">{blog.excerpt}</p>
-                <Link to="/insights" className="insight-read-more">
+                <p className="insight-excerpt">{blog.metaDescription}</p>
+                <Link to={`/blog/${blog.slug}`} className="insight-read-more" style={{ position: 'relative', zIndex: 10 }}>
                   Read Article <FaArrowRight />
                 </Link>
               </div>

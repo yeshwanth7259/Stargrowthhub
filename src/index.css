@@ -80,6 +80,12 @@ img {
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
@@ -90,7 +96,7 @@ p {
 }
 
 .heading-xl {
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.8rem, 8vw, 7rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;

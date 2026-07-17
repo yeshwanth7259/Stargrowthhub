@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './WorkPreview.css';
 
 const caseStudies = [
@@ -78,9 +79,9 @@ const WorkPreview = () => {
                 <div className="work-content">
                   <h3 className="work-title">{study.title}</h3>
                   <p className="work-desc">{study.desc}</p>
-                  <a href={study.link} className="work-link">
+                  <Link to="/work" className="work-link">
                     View Case <FaArrowRight style={{ marginLeft: '8px' }} />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

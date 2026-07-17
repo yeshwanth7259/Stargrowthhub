@@ -102,6 +102,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: gap 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .blog-card:hover .blog-link {

@@ -127,10 +127,19 @@
   .insights-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .insights-cards-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .insight-title {
+    font-size: 1.25rem;
+  }
+  
+  .insight-content {
+    padding: 1.5rem;
   }
 }

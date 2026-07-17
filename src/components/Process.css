@@ -116,23 +116,36 @@
 }
 
 @media (max-width: 992px) {
+  .process-section {
+    padding: 4rem 0;
+  }
+  
   .process-sticky-container {
     flex-direction: column;
+    gap: 2rem;
   }
   
   .process-visual-side {
     position: relative;
     top: 0;
-    height: 400px;
+    height: 300px;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   
   .process-scroll-step {
     height: auto;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     opacity: 0.5;
     transform: translateX(0);
+  }
+  
+  .process-title {
+    font-size: 2rem;
+  }
+  
+  .process-desc {
+    font-size: 1.1rem;
   }
   
   .process-scroll-step.active {

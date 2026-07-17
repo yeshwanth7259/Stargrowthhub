@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { FaSearch, FaHashtag, FaRocket, FaPenNib, FaLaptopCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
 import './Services.css';
 
@@ -43,8 +43,6 @@ const services = [
 ];
 
 const Services = () => {
-  const [activeService, setActiveService] = useState(0);
-
   return (
     <section id="services" className="services-section">
       <div className="container">
@@ -70,55 +68,29 @@ const Services = () => {
           </motion.h2>
         </div>
 
-        <div className="services-split-layout">
-          {/* Left Side: Scrollable List of Services */}
-          <div className="services-left-list">
-            {services.map((service, index) => (
-              <motion.div 
-                className={`service-list-item ${activeService === index ? 'active' : ''}`}
-                key={index}
-                onViewportEnter={() => setActiveService(index)}
-                viewport={{ amount: 0.5, margin: "-20% 0px -40% 0px" }}
-              >
-                <div className="service-list-icon">
-                  {service.icon}
-                </div>
-                <div className="service-list-content">
-                  <div className="mobile-service-image">
-                    <img src={service.image} alt={service.title} />
-                  </div>
-                  <h3 className="service-list-title">{service.title}</h3>
-                  <p className="service-list-desc">{service.desc}</p>
-                  <a href="#contact" className="service-link">
+        <div className="services-stack-container">
+          {services.map((service, index) => (
+            <div 
+              className="stack-card" 
+              key={index}
+              style={{ top: `calc(130px + ${index * 25}px)` }}
+            >
+              <div className="stack-card-inner">
+                <div className="stack-card-content">
+                  <div className="stack-card-icon">{service.icon}</div>
+                  <h3 className="stack-card-title">{service.title}</h3>
+                  <p className="stack-card-desc">{service.desc}</p>
+                  <a href="#contact" className="stack-card-link">
                     Explore <FaArrowRight />
                   </a>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Right Side: Sticky Image Viewer */}
-          <div className="services-right-sticky">
-            <div className="sticky-image-container">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeService}
-                  className="sticky-image-wrapper"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <img src={services[activeService].image} alt={services[activeService].title} />
-                  <div className="sticky-image-overlay"></div>
-                  <div className="sticky-image-content">
-                    <div className="sticky-icon">{services[activeService].icon}</div>
-                    <h3>{services[activeService].title}</h3>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+                <div className="stack-card-image">
+                  <img src={service.image} alt={service.title} loading="lazy" />
+                  <div className="image-overlay"></div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
       </div>
