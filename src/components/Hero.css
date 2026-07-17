@@ -6,6 +6,7 @@
   justify-content: center;
   overflow: hidden;
   background-color: var(--primary-black);
+  padding-top: 110px;
 }
 
 .hero-background {
