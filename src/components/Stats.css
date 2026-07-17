@@ -1,0 +1,120 @@
+.stats-section {
+  padding: 8rem 0;
+  background-color: var(--primary-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.stats-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stats-desc {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.stats-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem 0.8rem 2rem;
+  border-radius: 50px;
+}
+
+.btn-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-white);
+  color: var(--primary-red);
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.stats-right {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(230, 57, 70, 0.5);
+  box-shadow: 0 10px 40px rgba(230, 57, 70, 0.1);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin-bottom: 1.5rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-white);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .stats-left {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .stats-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-right {
+    grid-template-columns: 1fr;
+  }
+}

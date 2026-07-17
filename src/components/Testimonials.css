@@ -1,0 +1,138 @@
+.testimonials {
+  background-color: var(--primary-black);
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials-header .section-description {
+  margin: 1.5rem auto 0;
+}
+
+.testimonials-carousel {
+  cursor: grab;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.testimonials-carousel:active {
+  cursor: grabbing;
+}
+
+.testimonials-inner-carousel {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  padding-left: 1rem;
+}
+
+.testimonial-card {
+  width: 450px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  opacity: 0.8;
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.star-icon {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--primary-white);
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+  font-style: italic;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.author-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-red);
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-white);
+  margin-bottom: 0.2rem;
+}
+
+.author-role {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+}
+
+.author-company {
+  color: var(--primary-red);
+  font-weight: 500;
+}
+
+.drag-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  color: var(--text-gray);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
+
+.drag-line {
+  height: 1px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 320px;
+    padding: 2rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+}

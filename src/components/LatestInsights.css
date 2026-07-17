@@ -1,0 +1,136 @@
+.latest-insights {
+  background-color: var(--secondary-black);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.view-all-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.insights-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.insight-card {
+  background: var(--tertiary-black);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.insight-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(230, 57, 70, 0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.insight-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.insight-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.insight-card:hover .insight-image {
+  transform: scale(1.05);
+}
+
+.insight-category {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: var(--primary-red);
+  color: var(--primary-white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.insight-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.insight-title {
+  font-size: 1.4rem;
+  color: var(--primary-white);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.insight-excerpt {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.insight-read-more {
+  color: var(--primary-red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  transition: gap 0.3s ease;
+}
+
+.insight-card:hover .insight-read-more {
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .insights-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .insights-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .insights-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
