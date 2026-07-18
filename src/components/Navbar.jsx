@@ -31,6 +31,8 @@ const Navbar = () => {
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
         
+        <div className={`mobile-overlay ${mobileMenuOpen ? 'active' : ''}`} onClick={closeMobileMenu}></div>
+
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <li><Link to="/" className={location.pathname === '/' ? 'active-link' : ''} onClick={closeMobileMenu}>Home</Link></li>
           <li><Link to="/about" className={location.pathname === '/about' ? 'active-link' : ''} onClick={closeMobileMenu}>About Us</Link></li>
