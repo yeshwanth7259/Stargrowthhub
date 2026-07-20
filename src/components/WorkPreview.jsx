@@ -73,18 +73,19 @@ const WorkPreview = () => {
   const currentWork = worksData[currentIndex];
 
   return (
-    <section className="interactive-work-section">
-      
-      {/* Background Watermarks (Absolute and behind everything) */}
-      <div className="bg-text-wrapper">
-        <h1 className="bg-text-main">WORK</h1>
-        <h1 className="bg-text-right">WORK</h1>
-      </div>
-
-      {/* Main Visible Heading (Block level, pushes content down) */}
-      <div className="section-title-wrapper">
+    <>
+      {/* Physically detached heading section */}
+      <section className="work-heading-section">
         <h2>OUR WORKS</h2>
-      </div>
+      </section>
+
+      <section className="interactive-work-section">
+        
+        {/* Background Watermarks (Absolute and behind everything) */}
+        <div className="bg-text-wrapper">
+          <h1 className="bg-text-main">WORK</h1>
+          <h1 className="bg-text-right">WORK</h1>
+        </div>
       
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
@@ -137,7 +138,8 @@ const WorkPreview = () => {
         </div>
 
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 
