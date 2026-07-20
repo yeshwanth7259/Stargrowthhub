@@ -28,7 +28,8 @@
 .section-main-heading {
   position: absolute;
   top: 50px;
-  left: 5vw;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 20;
 }
 
@@ -197,7 +198,8 @@
   
   .section-main-heading {
     top: 30px;
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .section-main-heading h2 {
