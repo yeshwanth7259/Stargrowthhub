@@ -28,20 +28,35 @@
 
 .works-main-heading-container {
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 0;
   width: 100%;
-  text-align: center;
+  text-align: left;
+  padding-left: 80px; /* aligns with container padding approx */
   z-index: 5;
 }
 
 .works-main-heading {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
   margin: 0;
   letter-spacing: 2px;
   text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+
+/* Highlight accent under the heading */
+.works-main-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50%;
+  height: 6px;
+  background-color: #A3E635; /* Neon green highlight */
+  border-radius: 4px;
 }
 
 .bg-text {
