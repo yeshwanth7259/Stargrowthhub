@@ -228,15 +228,23 @@
   }
   .bg-text-main {
     font-size: 70px;
-    top: 30px;
+    top: 20px;
     left: 20px;
   }
   .work-interactive-container {
     flex-direction: column;
     height: auto;
-    margin-top: 80px;
-    padding: 0 20px 180px 20px; /* Bottom padding for title and buttons */
+    margin-top: 100px; /* Prevents overlap with WORK heading */
+    padding: 0 20px 200px 20px; /* Big bottom padding for title and buttons */
     gap: 0;
+  }
+  .center-image-area {
+    height: 400px;
+    width: 100%;
+  }
+  .tilted-image-wrapper {
+    width: 250px;
+    height: 350px;
   }
   .nav-area {
     position: absolute;
@@ -244,37 +252,35 @@
     width: 50%;
     height: 60px;
     align-items: center;
+    z-index: 10;
   }
   .nav-left {
     left: 0;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 20px;
   }
   .nav-right {
     right: 0;
-    justify-content: center;
-    position: static; /* Let overlay anchor to the container */
+    justify-content: flex-end;
+    padding-right: 20px;
   }
   .work-info-overlay {
     position: absolute;
-    bottom: 90px; /* Above the prev/next buttons */
-    left: 50%;
-    top: auto;
-    transform: translateX(-50%);
-    width: 90%;
+    bottom: 80px; /* Above the nav buttons */
+    right: 100%; /* Right edge at screen center */
+    transform: translateX(50%); /* Shift perfectly to center */
+    width: 90vw;
     text-align: center;
+    top: auto;
     margin: 0;
   }
   .work-details h2 {
     font-size: 2.2rem;
     margin-bottom: 8px;
+    color: white;
   }
-  .center-image-area {
-    height: 380px;
-    width: 100%;
-  }
-  .tilted-image-wrapper {
-    width: 250px;
-    height: 340px;
+  .work-details p {
+    font-size: 0.8rem;
   }
   .text-nav-btn {
     gap: 8px;
