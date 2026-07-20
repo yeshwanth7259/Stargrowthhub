@@ -44,12 +44,12 @@ const WorkPreview = () => {
   };
 
   const variants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 800 : -800,
+    enter: {
+      x: -800,
       opacity: 0,
-      rotate: direction > 0 ? 15 : -15,
+      rotate: -15,
       scale: 0.8
-    }),
+    },
     center: {
       x: 0,
       opacity: 1,
@@ -59,15 +59,15 @@ const WorkPreview = () => {
         type: "spring", stiffness: 200, damping: 25, duration: 0.5
       }
     },
-    exit: (direction) => ({
-      x: direction < 0 ? 800 : -800,
+    exit: {
+      x: 800,
       opacity: 0,
-      rotate: direction < 0 ? 15 : -15,
+      rotate: 15,
       scale: 0.8,
       transition: {
         type: "spring", stiffness: 200, damping: 25, duration: 0.5
       }
-    })
+    }
   };
 
   const currentWork = worksData[currentIndex];
