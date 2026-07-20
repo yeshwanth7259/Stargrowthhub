@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaSearch, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa';
 import './Process.css';
 
@@ -10,7 +10,8 @@ const processSteps = [
     title: "Discover & Audit",
     desc: "We tear down your current strategy, analyze your competitors, and identify the hidden bottlenecks in your funnel.",
     icon: <FaSearch />,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    color: "#1a1a1a"
   },
   {
     id: 1,
@@ -18,7 +19,8 @@ const processSteps = [
     title: "Strategize",
     desc: "We build a bespoke, data-driven blueprint tailored exactly to your revenue goals. No templates, just pure strategy.",
     icon: <FaLightbulb />,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    color: "#1f1f1f"
   },
   {
     id: 2,
@@ -26,7 +28,8 @@ const processSteps = [
     title: "Aggressive Execution",
     desc: "Our team deploys campaigns, launches platforms, and begins capturing market share immediately.",
     icon: <FaRocket />,
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop",
+    color: "#242424"
   },
   {
     id: 3,
@@ -34,18 +37,61 @@ const processSteps = [
     title: "Scale & Optimize",
     desc: "We don't set it and forget it. We continuously A/B test and optimize to drive Cost Per Acquisition down and ROI up.",
     icon: <FaChartLine />,
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop",
+    color: "#292929"
   }
 ];
 
-const Process = () => {
-  const [activeStep, setActiveStep] = useState(0);
+const ProcessCard = ({ step, i, progress, range, targetScale }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'start start']
+  });
+
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
+  const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <section className="process-section">
+    <div ref={container} className="process-card-wrapper">
+      <motion.div 
+        className="process-card"
+        style={{ 
+          scale,
+          top: `calc(10vh + ${i * 30}px)`,
+          backgroundColor: step.color
+        }}
+      >
+        <div className="process-card-content">
+          <div className="process-card-header">
+            <div className="process-card-icon">{step.icon}</div>
+            <h4 className="process-card-number">{step.number}</h4>
+          </div>
+          <h3 className="process-card-title">{step.title}</h3>
+          <p className="process-card-desc">{step.desc}</p>
+        </div>
+        <div className="process-card-image-container">
+          <motion.div className="process-card-image-inner" style={{ scale: imageScale }}>
+            <img src={step.image} alt={step.title} />
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const Process = () => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  });
+
+  return (
+    <section className="process-section" ref={container}>
       <div className="container">
         
-        <div className="section-header" style={{ marginBottom: '4rem' }}>
+        <div className="section-header process-header">
           <motion.p 
             className="section-kicker"
             initial={{ opacity: 0, y: 20 }}
@@ -66,47 +112,22 @@ const Process = () => {
           </motion.h2>
         </div>
 
-        <div className="process-sticky-container">
-          
-          {/* LEFT: Sticky Visuals */}
-          <div className="process-visual-side">
-            <div className="process-sticky-wrapper">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStep}
-                  className="process-image-card"
-                  initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  <img src={processSteps[activeStep].image} alt={processSteps[activeStep].title} />
-                  <div className="process-image-overlay">
-                    <div className="process-image-icon">{processSteps[activeStep].icon}</div>
-                    <h3>{processSteps[activeStep].title}</h3>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* RIGHT: Scrolling Content */}
-          <div className="process-content-side">
-            {processSteps.map((step) => (
-              <motion.div 
-                className={`process-scroll-step ${activeStep === step.id ? 'active' : ''}`}
-                key={step.id}
-                onViewportEnter={() => setActiveStep(step.id)}
-                viewport={{ margin: "-50% 0px -50% 0px", amount: "some" }}
-              >
-                <h4 className="process-number">{step.number}</h4>
-                <h3 className="process-title">{step.title}</h3>
-                <p className="process-desc">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
+        <div className="process-cards-container">
+          {processSteps.map((step, i) => {
+            const targetScale = 1 - ((processSteps.length - i) * 0.05);
+            return (
+              <ProcessCard 
+                key={step.id} 
+                step={step} 
+                i={i}
+                progress={scrollYProgress}
+                range={[i * 0.25, 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
