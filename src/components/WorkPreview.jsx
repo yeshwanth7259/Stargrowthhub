@@ -1,90 +1,131 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './WorkPreview.css';
 
-const caseStudies = [
+const worksData = [
   {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    title: "E-Commerce SEO",
-    desc: "+320% Organic Traffic",
-    link: "/work/ecommerce"
+    id: 1,
+    title: "JAPANESE\nCUISINE",
+    date: "MAY 7, 2023",
+    image: "https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1000&auto=format&fit=crop",
   },
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    title: "Lead Generation Campaign",
-    desc: "+450% Quality Leads",
-    link: "/work/leadgen"
+    id: 2,
+    title: "E-COMMERCE\nPLATFORM",
+    date: "AUG 12, 2023",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1000&auto=format&fit=crop",
   },
   {
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
-    title: "Social Media Growth",
-    desc: "+280% Engagement",
-    link: "/work/social"
+    id: 3,
+    title: "HEALTHCARE\nAPP",
+    date: "NOV 24, 2023",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
+  },
+  {
+    id: 4,
+    title: "REAL ESTATE\nPORTAL",
+    date: "JAN 15, 2024",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
   }
 ];
 
 const WorkPreview = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev === worksData.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? worksData.length - 1 : prev - 1));
+  };
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 800 : -800,
+      opacity: 0,
+      rotate: direction > 0 ? 15 : -15,
+      scale: 0.8
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      rotate: -8,
+      scale: 1,
+      transition: {
+        type: "spring", stiffness: 200, damping: 25, duration: 0.5
+      }
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 800 : -800,
+      opacity: 0,
+      rotate: direction < 0 ? 15 : -15,
+      scale: 0.8,
+      transition: {
+        type: "spring", stiffness: 200, damping: 25, duration: 0.5
+      }
+    })
+  };
+
+  const currentWork = worksData[currentIndex];
+
   return (
-    <section className="work-preview-section">
-      <div className="container work-preview-container">
+    <section className="interactive-work-section">
+      <div className="bg-text-wrapper">
+        <h1 className="bg-text">WORK</h1>
+        <h1 className="bg-text-right">WORK</h1>
+      </div>
+      
+      <div className="circle-decoration"></div>
+      <div className="dot-decoration"></div>
+      
+      <div className="work-interactive-container">
         
-        <div className="work-preview-left">
-          <motion.p 
-            className="section-kicker"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            OUR WORK
-          </motion.p>
-          <motion.h2 
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            Success Stories<br/>
-            That Inspire
-          </motion.h2>
-          
-          <motion.div 
-            className="work-nav-arrows"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <button className="nav-arrow-btn"><FaArrowLeft /></button>
-            <button className="nav-arrow-btn"><FaArrowRight /></button>
-          </motion.div>
+        <div className="nav-area nav-left">
+          <button className="text-nav-btn" onClick={prevSlide}>
+            PREV <span className="nav-line"></span>
+          </button>
         </div>
 
-        <div className="work-preview-right">
-          <div className="work-carousel">
-            {caseStudies.map((study, index) => (
-              <motion.div 
-                className="work-card"
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.2, duration: 0.5 }}
+        <div className="center-image-area">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="tilted-image-wrapper"
+            >
+              <div className="image-backdrop"></div>
+              <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="nav-area nav-right">
+          <button className="text-nav-btn" onClick={nextSlide}>
+            <span className="nav-line"></span> NEXT
+          </button>
+          
+          <div className="work-info-overlay">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="work-details"
               >
-                <div className="work-image-wrapper">
-                  <img src={study.image} alt={study.title} className="work-image" />
-                </div>
-                <div className="work-content">
-                  <h3 className="work-title">{study.title}</h3>
-                  <p className="work-desc">{study.desc}</p>
-                  <Link to="/work" className="work-link">
-                    View Case <FaArrowRight style={{ marginLeft: '8px' }} />
-                  </Link>
-                </div>
+                <h2>{currentWork.title.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}</h2>
+                <p>{currentWork.date}</p>
               </motion.div>
-            ))}
+            </AnimatePresence>
           </div>
         </div>
 
