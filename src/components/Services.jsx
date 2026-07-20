@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaHashtag, FaRocket, FaPenNib, FaLaptopCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
 import './Services.css';
+import socialMediaImg from '../assets/service_social.png';
 
 const services = [
   {
@@ -14,7 +15,7 @@ const services = [
     icon: <FaHashtag />,
     title: "Social Media Marketing",
     desc: "Engage your audience and build a brand that people love.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop"
+    image: socialMediaImg
   },
   {
     icon: <FaRocket />,
