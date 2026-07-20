@@ -853,6 +853,9 @@
     width: 70%;
     margin-top: 3rem;
   }
+  .arsenal-img {
+    height: 400px;
+  }
   .partners-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -897,6 +900,9 @@
   }
   .about-stat-item {
     margin-bottom: 0;
+  }
+  .arsenal-img {
+    height: 280px;
   }
   .partners-grid {
     grid-template-columns: 1fr;
