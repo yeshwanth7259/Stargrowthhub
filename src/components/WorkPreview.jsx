@@ -73,81 +73,80 @@ const WorkPreview = () => {
   const currentWork = worksData[currentIndex];
 
   return (
-    <>
-      {/* Physically detached heading section */}
-      <section className="work-heading-section">
-        <h2>OUR WORKS</h2>
-      </section>
-
-      <section className="interactive-work-section">
-        
-        {/* Background Watermarks (Absolute and behind everything) */}
-        <div className="bg-text-wrapper">
-          <h1 className="bg-text-main">WORK</h1>
-          <h1 className="bg-text-right">WORK</h1>
-        </div>
+    <section className="interactive-work-section">
+      
+      {/* Giant Vertical Watermark on the Right */}
+      <div className="watermark-right">WORK</div>
       
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
       
       <div className="work-interactive-container">
         
-        <button className="text-nav-btn desktop-nav nav-left-btn" onClick={prevSlide}>
-          PREV <span className="nav-line"></span>
-        </button>
+        {/* LEFT COLUMN: PREV Button */}
+        <div className="nav-col-left desktop-only">
+          <button className="text-nav-btn" onClick={prevSlide}>
+            PREV <span className="nav-line"></span>
+          </button>
+        </div>
 
-        <div className="center-content-area">
-          <div className="carousel-view">
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.div
-                key={currentIndex}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="tilted-image-wrapper"
-              >
-                <div className="image-backdrop"></div>
-                <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
-              </motion.div>
-            </AnimatePresence>
+        {/* CENTER COLUMN: Tilted Image */}
+        <div className="image-col-center">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="tilted-wrapper"
+            >
+              <div className="image-backdrop"></div>
+              <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* RIGHT COLUMN: NEXT Button + Title/Date */}
+        <div className="info-col-right">
+          
+          <div className="desktop-only">
+            <button className="text-nav-btn" onClick={nextSlide}>
+              <span className="nav-line"></span> NEXT
+            </button>
           </div>
-
-          <div className="work-info-block">
+          
+          <div className="title-block">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="work-details"
               >
                 <h2>{currentWork.title.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}</h2>
                 <p>{currentWork.date}</p>
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
 
-        <button className="text-nav-btn desktop-nav nav-right-btn" onClick={nextSlide}>
-          <span className="nav-line"></span> NEXT
-        </button>
-
-        {/* Mobile Navigation (Placed at bottom for easy thumb access) */}
-        <div className="mobile-nav-area">
-          <button className="text-nav-btn" onClick={prevSlide}>
-            PREV <span className="nav-line"></span>
-          </button>
-          <button className="text-nav-btn" onClick={nextSlide}>
-            <span className="nav-line"></span> NEXT
-          </button>
         </div>
 
       </div>
-      </section>
-    </>
+
+      {/* MOBILE NAVIGATION: Bottom edge */}
+      <div className="mobile-nav-row mobile-only">
+        <button className="text-nav-btn" onClick={prevSlide}>
+          PREV <span className="nav-line"></span>
+        </button>
+        <button className="text-nav-btn" onClick={nextSlide}>
+          <span className="nav-line"></span> NEXT
+        </button>
+      </div>
+
+    </section>
   );
 };
 
