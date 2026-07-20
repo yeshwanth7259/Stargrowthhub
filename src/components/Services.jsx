@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaHashtag, FaRocket, FaPenNib, FaLaptopCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
 import './Services.css';
-import socialPileImg from '../assets/service_social_pile.jpg';
+import socialPileImg from '../assets/service_social_pile.png';
 
 const services = [
   {
