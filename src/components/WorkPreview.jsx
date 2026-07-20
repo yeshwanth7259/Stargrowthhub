@@ -92,41 +92,35 @@ const WorkPreview = () => {
       
       <div className="work-interactive-container">
         
-        <div className="nav-area nav-left">
-          <button className="text-nav-btn" onClick={prevSlide}>
-            PREV <span className="nav-line"></span>
-          </button>
-        </div>
+        <button className="text-nav-btn desktop-nav nav-left-btn" onClick={prevSlide}>
+          PREV <span className="nav-line"></span>
+        </button>
 
-        <div className="center-image-area">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="tilted-image-wrapper"
-            >
-              <div className="image-backdrop"></div>
-              <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        <div className="center-content-area">
+          <div className="carousel-view">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="tilted-image-wrapper"
+              >
+                <div className="image-backdrop"></div>
+                <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        <div className="nav-area nav-right">
-          <button className="text-nav-btn" onClick={nextSlide}>
-            <span className="nav-line"></span> NEXT
-          </button>
-          
-          <div className="work-info-overlay">
+          <div className="work-info-block">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
                 className="work-details"
               >
@@ -135,6 +129,20 @@ const WorkPreview = () => {
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
+        <button className="text-nav-btn desktop-nav nav-right-btn" onClick={nextSlide}>
+          <span className="nav-line"></span> NEXT
+        </button>
+
+        {/* Mobile Navigation (Placed at bottom for easy thumb access) */}
+        <div className="mobile-nav-area">
+          <button className="text-nav-btn" onClick={prevSlide}>
+            PREV <span className="nav-line"></span>
+          </button>
+          <button className="text-nav-btn" onClick={nextSlide}>
+            <span className="nav-line"></span> NEXT
+          </button>
         </div>
 
       </div>
