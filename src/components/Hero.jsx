@@ -67,7 +67,7 @@ const Hero = () => {
               Our Services <FaArrowRight style={{ marginLeft: '10px' }} />
             </motion.a>
             <motion.a 
-              href="/contact" 
+              href="tel:+918904823979" 
               className="btn btn-outline hero-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
