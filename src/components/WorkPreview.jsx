@@ -5,7 +5,7 @@ import './WorkPreview.css';
 const worksData = [
   {
     id: 1,
-    title: "JAPANESE\nCUISINE",
+    title: "RESTAURANT\nMANAGEMENT",
     date: "MAY 7, 2023",
     image: "https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop",
   },
