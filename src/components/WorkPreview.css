@@ -202,16 +202,20 @@
 @media (max-width: 992px) {
   .interactive-work-section {
     height: auto;
-    padding: 100px 0 60px 0; /* Extra top padding */
+    padding: 80px 0 60px 0; /* Extra top padding */
     min-height: auto;
-    display: block; /* Remove flex centering so margin works predictably */
+    display: flex; 
+    flex-direction: column; /* Forces strict vertical stacking of the heading and container */
+    justify-content: flex-start;
   }
   .bg-text-main {
-    position: relative; /* Put in flow so it pushes content down */
+    position: relative; 
     font-size: 80px;
     top: 0;
-    left: 20px;
-    margin-bottom: 60px; /* Enforces strict spacing between heading and image */
+    left: 0;
+    align-self: flex-start; /* Align left in the flex column */
+    padding-left: 20px;
+    margin-bottom: 60px; /* Strong separation from the image */
   }
   .work-interactive-container {
     flex-direction: column;
@@ -219,6 +223,7 @@
     margin-top: 0; 
     padding: 0 20px 200px 20px; /* Big bottom padding for title and buttons */
     gap: 0;
+    width: 100%;
   }
   .center-image-area {
     height: 400px;
