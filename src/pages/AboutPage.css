@@ -905,6 +905,21 @@
     height: 280px;
   }
   .partners-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .partner-logo-item {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    gap: 0.5rem;
+    border-radius: 20px;
+  }
+  .partner-icon {
+    font-size: 2rem;
+  }
+  .partner-name {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.2;
   }
 }
