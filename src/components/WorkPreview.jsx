@@ -75,14 +75,15 @@ const WorkPreview = () => {
   return (
     <section className="interactive-work-section">
       
-      {/* Dedicated separate heading for mobile view */}
-      <div className="mobile-work-heading">
-        <h2>OUR WORKS</h2>
+      {/* Background Watermarks (Absolute and behind everything) */}
+      <div className="bg-text-wrapper">
+        <h1 className="bg-text-main">WORK</h1>
+        <h1 className="bg-text-right">WORK</h1>
       </div>
 
-      <h1 className="bg-text-main desktop-only-text">WORK</h1>
-      <div className="bg-text-wrapper desktop-only-text">
-        <h1 className="bg-text-right">WORK</h1>
+      {/* Main Visible Heading (Block level, pushes content down) */}
+      <div className="section-title-wrapper">
+        <h2>OUR WORKS</h2>
       </div>
       
       <div className="circle-decoration"></div>

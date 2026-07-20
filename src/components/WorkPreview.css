@@ -6,23 +6,31 @@
   background-color: #111;
   color: white;
   overflow: hidden;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  padding: 100px 0;
+  display: block; /* Robust block layout */
+  padding: 80px 0;
 }
 
-.mobile-work-heading {
-  display: none; /* Hidden on desktop */
+.section-title-wrapper {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 60px; /* Space between heading and carousel */
+}
+
+.section-title-wrapper h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 .bg-text-wrapper {
   position: absolute;
-  top: 0;
+  top: 15%;
   left: 0;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,29 +40,23 @@
 }
 
 .bg-text-main {
-  font-size: 120px;
+  font-size: 14vw;
   font-weight: 900;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.04);
   line-height: 1;
-  margin: 0 0 60px 8%; /* Enforces strict spacing between heading and interactive container below */
+  margin: 0 0 0 -2%;
   letter-spacing: -0.02em;
-  position: relative; /* Now part of document flow to push items down */
-  align-self: flex-start;
-  z-index: 10;
 }
 
 .bg-text-right {
-  position: absolute;
-  right: -5%;
-  top: 0;
-  color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.03);
   writing-mode: vertical-rl;
   font-size: 25vw;
   font-weight: 900;
   margin: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  position: absolute;
+  right: -5%;
+  top: 0;
 }
 
 .work-interactive-container {
@@ -208,33 +210,16 @@
 }
 
 @media (max-width: 992px) {
-  .desktop-only-text {
-    display: none !important; /* Completely remove the giant desktop headings */
-  }
-  
-  .mobile-work-heading {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 50px;
-    padding-top: 20px;
-  }
-  
-  .mobile-work-heading h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: white;
-    margin: 0;
-    letter-spacing: 2px;
+@media (max-width: 992px) {
+  .section-title-wrapper h2 {
+    font-size: 3rem;
   }
   
   .interactive-work-section {
     height: auto;
     padding: 60px 0 60px 0;
     min-height: auto;
-    display: flex; 
-    flex-direction: column;
-    justify-content: flex-start;
+    display: block; 
   }
   .work-interactive-container {
     flex-direction: column;
