@@ -1,203 +1,168 @@
-.process-section {
-  padding: 8rem 0;
+.process-carousel-section {
+  position: relative;
+  height: 400vh; /* Determines how long the user has to scroll to complete the carousel */
   background-color: var(--primary-black);
-  position: relative;
-  overflow: hidden;
 }
 
-.process-header {
-  margin-bottom: 6rem;
-  text-align: center;
-}
-
-.timeline-container {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.timeline-track {
-  position: absolute;
-  left: 50%;
+.process-carousel-sticky {
+  position: sticky;
   top: 0;
-  bottom: 0;
-  width: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.timeline-progress {
-  width: 100%;
-  height: 100%;
-  background: var(--primary-red);
-  border-radius: 2px;
-  box-shadow: 0 0 15px var(--primary-red);
-}
-
-.timeline-row {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 8rem;
-  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 2rem;
 }
 
-.timeline-row:last-child {
-  margin-bottom: 0;
+.process-carousel-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
 }
 
-.timeline-row.row-left {
-  flex-direction: row-reverse;
+.process-carousel-track {
+  display: flex;
+  width: 400vw; /* 4 slides, each 100vw */
+  height: 65vh; /* Fixed height for the carousel */
 }
 
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: var(--primary-black);
-  border: 3px solid var(--primary-red);
-  border-radius: 50%;
+.process-carousel-slide {
+  width: 100vw;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-white);
-  z-index: 10;
-  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+  padding: 0 5vw; /* Padding so cards don't touch edges */
 }
 
-.timeline-content {
-  width: 45%;
-}
-
-.timeline-card {
-  background: #151515;
-  border-radius: 1.5rem;
+.carousel-card {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  background: #111;
+  border-radius: 2rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s, border-color 0.3s;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.timeline-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(229, 9, 20, 0.3);
-}
-
-.timeline-card-image {
+.carousel-card-image {
+  flex: 1.2;
   position: relative;
-  height: 250px;
+  height: 100%;
 }
 
-.timeline-card-image img {
+.carousel-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+  opacity: 0.8;
+  transition: opacity 0.4s;
 }
 
-.timeline-card:hover .timeline-card-image img {
+.carousel-card:hover .carousel-card-image img {
   opacity: 1;
 }
 
-.timeline-card-icon {
+.carousel-card-number {
   position: absolute;
-  bottom: -25px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
+  top: 2rem;
+  left: 2rem;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.carousel-card-content {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+.carousel-card-icon {
+  width: 80px;
+  height: 80px;
   background: var(--primary-red);
-  border-radius: 50%;
+  border-radius: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
+  margin-bottom: 2rem;
   box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
 }
 
-.timeline-row.row-left .timeline-card-icon {
-  right: auto;
-  left: 30px;
-}
-
-.timeline-card-text {
-  padding: 3rem 2rem 2.5rem;
-}
-
-.step-number {
-  color: var(--primary-red);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-card-text h3 {
-  font-size: 2rem;
+.carousel-card-text h3 {
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
   color: white;
+  margin-bottom: 1.5rem;
 }
 
-.timeline-card-text p {
+.carousel-card-text p {
+  font-size: 1.2rem;
   color: var(--text-gray);
-  line-height: 1.6;
-  font-size: 1.1rem;
-  margin: 0;
+  line-height: 1.8;
 }
 
 /* Mobile Responsive */
 @media (max-width: 992px) {
-  .process-section {
-    padding: 5rem 0;
+  .process-carousel-sticky {
+    padding-top: 5rem;
   }
   
-  .timeline-container {
-    padding: 0 20px;
+  .process-carousel-header {
+    margin-bottom: 1rem;
   }
 
-  .timeline-track {
-    left: 20px; /* Shift track to the far left on mobile */
-    transform: none;
+  .process-carousel-track {
+    height: 75vh;
   }
-  
-  .timeline-dot {
-    left: 20px;
-    transform: translate(-50%, -50%);
-    top: 50%; /* Center dot vertically relative to row */
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-  
-  .timeline-row, .timeline-row.row-left {
+
+  .carousel-card {
     flex-direction: column;
-    align-items: flex-end; /* Push content to the right */
-    margin-bottom: 4rem;
-  }
-  
-  .timeline-content {
-    width: calc(100% - 60px); /* Leave room for the track and dot */
-  }
-  
-  .timeline-card-image {
-    height: 200px;
-  }
-  
-  .timeline-card-text h3 {
-    font-size: 1.5rem;
+    height: 100%;
   }
 
-  .timeline-card-text p {
+  .carousel-card-image {
+    flex: 0.8;
+  }
+
+  .carousel-card-content {
+    flex: 1.2;
+    padding: 2rem;
+  }
+
+  .carousel-card-number {
+    font-size: 3rem;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .carousel-card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+  }
+
+  .carousel-card-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-card-text p {
     font-size: 1rem;
   }
 }

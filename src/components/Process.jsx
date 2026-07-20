@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaSearch, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa';
 import './Process.css';
 
 const processSteps = [
   {
     id: 1,
+    number: "01",
     title: "Discover & Audit",
     desc: "We tear down your current strategy, analyze your competitors, and identify the hidden bottlenecks in your funnel.",
     icon: <FaSearch />,
@@ -13,6 +14,7 @@ const processSteps = [
   },
   {
     id: 2,
+    number: "02",
     title: "Strategize",
     desc: "We build a bespoke, data-driven blueprint tailored exactly to your revenue goals. No templates, just pure strategy.",
     icon: <FaLightbulb />,
@@ -20,6 +22,7 @@ const processSteps = [
   },
   {
     id: 3,
+    number: "03",
     title: "Aggressive Execution",
     desc: "Our team deploys campaigns, launches platforms, and begins capturing market share immediately.",
     icon: <FaRocket />,
@@ -27,6 +30,7 @@ const processSteps = [
   },
   {
     id: 4,
+    number: "04",
     title: "Scale & Optimize",
     desc: "We don't set it and forget it. We continuously A/B test and optimize to drive Cost Per Acquisition down and ROI up.",
     icon: <FaChartLine />,
@@ -35,94 +39,49 @@ const processSteps = [
 ];
 
 const Process = () => {
-  const containerRef = useRef(null);
+  const targetRef = useRef(null);
   
-  // Track the scroll progress of the entire section
+  // Track vertical scroll progress
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
+    target: targetRef,
+    offset: ["start start", "end end"]
   });
 
-  // Add a spring physics effect to the scroll line for smooth filling
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  // 4 items = track is 400% of viewport width. 
+  // To reach the 4th item, we shift by -75% of the track's total width.
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section className="process-section" id="process" ref={containerRef}>
-      <div className="container">
+    <section className="process-carousel-section" id="process" ref={targetRef}>
+      <div className="process-carousel-sticky">
         
-        <div className="section-header process-header">
-          <motion.p 
-            className="section-kicker"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            OUR PROCESS
-          </motion.p>
-          <motion.h2 
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
+        <div className="process-carousel-header">
+          <p className="section-kicker">OUR PROCESS</p>
+          <h2 className="section-title">
             A Simple 4-Step Process<br/>
             To Your <span className="text-red">Success</span>
-          </motion.h2>
+          </h2>
         </div>
 
-        <div className="timeline-container">
-          
-          {/* Center Glowing Scroll Line */}
-          <div className="timeline-track">
-            <motion.div className="timeline-progress" style={{ scaleY, transformOrigin: "top" }} />
-          </div>
-
-          {processSteps.map((step, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div key={step.id} className={`timeline-row ${isEven ? 'row-left' : 'row-right'}`}>
-                
-                {/* Center Number Dot */}
-                <motion.div 
-                  className="timeline-dot"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                >
-                  {step.id}
-                </motion.div>
-
-                {/* Content Card sliding in from left or right */}
-                <motion.div 
-                  className="timeline-content"
-                  initial={{ opacity: 0, x: isEven ? -80 : 80 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                  <div className="timeline-card">
-                    <div className="timeline-card-image">
-                      <img src={step.image} alt={step.title} loading="lazy" />
-                      <div className="timeline-card-icon">{step.icon}</div>
-                    </div>
-                    <div className="timeline-card-text">
-                      <div className="step-number">Step {step.id}</div>
-                      <h3>{step.title}</h3>
-                      <p>{step.desc}</p>
-                    </div>
+        <motion.div style={{ x }} className="process-carousel-track">
+          {processSteps.map((step) => (
+            <div key={step.id} className="process-carousel-slide">
+              <div className="carousel-card">
+                <div className="carousel-card-image">
+                  <img src={step.image} alt={step.title} loading="lazy" />
+                  <div className="carousel-card-number">{step.number}</div>
+                </div>
+                <div className="carousel-card-content">
+                  <div className="carousel-card-icon">{step.icon}</div>
+                  <div className="carousel-card-text">
+                    <h3>{step.title}</h3>
+                    <p>{step.desc}</p>
                   </div>
-                </motion.div>
-
+                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          ))}
+        </motion.div>
 
       </div>
     </section>
