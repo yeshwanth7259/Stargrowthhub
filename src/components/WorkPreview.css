@@ -11,31 +11,17 @@
   justify-content: center;
 }
 
-.watermark-right {
+.watermark-side {
   position: absolute;
-  right: -5vw;
+  left: -2vw;
   top: 50%;
   transform: translateY(-50%);
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   font-size: 25vw;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.03);
   pointer-events: none;
   letter-spacing: -10px;
-  z-index: 0;
-}
-
-.watermark-mobile {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 22vw;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
-  pointer-events: none;
-  letter-spacing: 5px;
   z-index: 0;
 }
 
@@ -188,8 +174,10 @@
     display: block; /* Ensure it doesn't flex-row the container */
   }
   
-  .watermark-right {
-    display: none; /* Hide vertical watermark on mobile */
+  .watermark-side {
+    font-size: 30vw;
+    left: -8vw;
+    opacity: 0.6;
   }
   
   .work-interactive-container {

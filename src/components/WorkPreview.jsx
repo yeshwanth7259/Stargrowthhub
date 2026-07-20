@@ -75,11 +75,8 @@ const WorkPreview = () => {
   return (
     <section className="interactive-work-section">
       
-      {/* Giant Vertical Watermark on the Right (Desktop) */}
-      <div className="watermark-right">WORK</div>
-
-      {/* Horizontal Watermark (Mobile) */}
-      <div className="watermark-mobile mobile-only">WORK</div>
+      {/* Giant Vertical Watermark on the Left Edge */}
+      <div className="watermark-side">WORK</div>
       
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
