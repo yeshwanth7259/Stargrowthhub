@@ -1,27 +1,57 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
 import { FaFolderOpen, FaHeart, FaChartBar, FaUsers, FaPlus } from 'react-icons/fa';
 import './Stats.css';
+
+const AnimatedCounter = ({ value, suffix }) => {
+  const nodeRef = useRef(null);
+  const isInView = useInView(nodeRef, { once: true, margin: "-10px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const node = nodeRef.current;
+      const controls = animate(0, value, {
+        duration: 2.5,
+        ease: "easeOut",
+        onUpdate(v) {
+          node.textContent = Math.round(v);
+        }
+      });
+      return () => controls.stop();
+    }
+  }, [value, isInView]);
+
+  return (
+    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+      <span ref={nodeRef}>0</span>
+      <span>{suffix}</span>
+    </div>
+  );
+};
 
 const statsData = [
   {
     icon: <FaFolderOpen />,
-    value: "250+",
+    value: 250,
+    suffix: "+",
     label: "Projects Completed"
   },
   {
     icon: <FaHeart />,
-    value: "98%",
+    value: 98,
+    suffix: "%",
     label: "Client Satisfaction"
   },
   {
     icon: <FaChartBar />,
-    value: "5X",
+    value: 5,
+    suffix: "X",
     label: "Average ROI Growth"
   },
   {
     icon: <FaUsers />,
-    value: "50+",
+    value: 50,
+    suffix: "+",
     label: "Industries Served"
   }
 ];
@@ -82,7 +112,9 @@ const Stats = () => {
               transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
             >
               <div className="stat-icon">{stat.icon}</div>
-              <h3 className="stat-value">{stat.value}</h3>
+              <h3 className="stat-value">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </h3>
               <p className="stat-label">{stat.label}</p>
             </motion.div>
           ))}
