@@ -25,6 +25,20 @@
   z-index: 0;
 }
 
+.watermark-mobile {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 22vw;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  letter-spacing: 5px;
+  z-index: 0;
+}
+
 .work-interactive-container {
   position: relative;
   z-index: 2;
@@ -169,21 +183,28 @@
 
 @media (max-width: 992px) {
   .interactive-work-section {
-    padding: 100px 0;
+    padding: 80px 0;
     height: auto;
+    display: block; /* Ensure it doesn't flex-row the container */
+  }
+  
+  .watermark-right {
+    display: none; /* Hide vertical watermark on mobile */
   }
   
   .work-interactive-container {
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
+    align-items: center;
+    padding: 0 20px;
   }
   
   .desktop-only {
-    display: none;
+    display: none !important; /* Force hide despite flex specificity */
   }
   
   .mobile-only {
-    display: flex;
+    display: flex !important;
   }
   
   .info-col-right {
@@ -197,22 +218,20 @@
   }
   
   .tilted-wrapper {
-    width: 360px;
-    height: 480px;
+    width: 90vw;
+    max-width: 380px;
+    height: 125vw;
+    max-height: 520px;
   }
   
   .mobile-nav-row {
     width: 100%;
+    max-width: 400px;
     justify-content: space-between;
-    padding: 0 40px;
-    margin-top: 40px;
+    padding: 20px 0;
+    margin-top: 0;
     position: relative;
     z-index: 10;
-  }
-  
-  .watermark-right {
-    font-size: 35vw;
-    right: -10vw;
   }
 }
 

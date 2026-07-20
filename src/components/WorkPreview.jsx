@@ -75,8 +75,11 @@ const WorkPreview = () => {
   return (
     <section className="interactive-work-section">
       
-      {/* Giant Vertical Watermark on the Right */}
+      {/* Giant Vertical Watermark on the Right (Desktop) */}
       <div className="watermark-right">WORK</div>
+
+      {/* Horizontal Watermark (Mobile) */}
+      <div className="watermark-mobile mobile-only">WORK</div>
       
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
@@ -134,16 +137,16 @@ const WorkPreview = () => {
 
         </div>
 
-      </div>
+        {/* MOBILE NAVIGATION: Bottom edge (Inside container) */}
+        <div className="mobile-nav-row mobile-only">
+          <button className="text-nav-btn" onClick={prevSlide}>
+            PREV <span className="nav-line"></span>
+          </button>
+          <button className="text-nav-btn" onClick={nextSlide}>
+            <span className="nav-line"></span> NEXT
+          </button>
+        </div>
 
-      {/* MOBILE NAVIGATION: Bottom edge */}
-      <div className="mobile-nav-row mobile-only">
-        <button className="text-nav-btn" onClick={prevSlide}>
-          PREV <span className="nav-line"></span>
-        </button>
-        <button className="text-nav-btn" onClick={nextSlide}>
-          <span className="nav-line"></span> NEXT
-        </button>
       </div>
 
     </section>
