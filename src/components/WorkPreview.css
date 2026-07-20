@@ -27,15 +27,15 @@
 }
 
 .bg-text-main {
-  font-size: 18vw;
+  font-size: 140px;
   font-weight: 900;
   color: #fff;
   line-height: 1;
   margin: 0;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 80px;
+  left: 10%;
   z-index: 1;
 }
 
