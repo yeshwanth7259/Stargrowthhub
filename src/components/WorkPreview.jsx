@@ -109,6 +109,16 @@ const WorkPreview = () => {
               <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
             </motion.div>
           </AnimatePresence>
+
+          {/* MOBILE NAVIGATION: Floating over image edges */}
+          <div className="mobile-nav-overlay mobile-only">
+            <button className="text-nav-btn" onClick={prevSlide}>
+              PREV <span className="nav-line"></span>
+            </button>
+            <button className="text-nav-btn" onClick={nextSlide}>
+              <span className="nav-line"></span> NEXT
+            </button>
+          </div>
         </div>
 
         {/* RIGHT COLUMN: NEXT Button + Title/Date */}
@@ -135,16 +145,6 @@ const WorkPreview = () => {
             </AnimatePresence>
           </div>
 
-        </div>
-
-        {/* MOBILE NAVIGATION: Bottom edge (Inside container) */}
-        <div className="mobile-nav-row mobile-only">
-          <button className="text-nav-btn" onClick={prevSlide}>
-            PREV <span className="nav-line"></span>
-          </button>
-          <button className="text-nav-btn" onClick={nextSlide}>
-            <span className="nav-line"></span> NEXT
-          </button>
         </div>
 
       </div>
