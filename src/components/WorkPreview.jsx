@@ -75,6 +75,11 @@ const WorkPreview = () => {
   return (
     <section className="interactive-work-section">
       
+      {/* Top Left Visible Heading */}
+      <div className="section-main-heading">
+        <h2>WORK</h2>
+      </div>
+
       {/* Giant Vertical Watermark on the Left Edge */}
       <div className="watermark-side">WORK</div>
       

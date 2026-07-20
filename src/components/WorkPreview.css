@@ -25,6 +25,21 @@
   z-index: 0;
 }
 
+.section-main-heading {
+  position: absolute;
+  top: 50px;
+  left: 5vw;
+  z-index: 20;
+}
+
+.section-main-heading h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
 .work-interactive-container {
   position: relative;
   z-index: 2;
@@ -178,6 +193,15 @@
     font-size: 30vw;
     left: -8vw;
     opacity: 0.6;
+  }
+  
+  .section-main-heading {
+    top: 30px;
+    left: 20px;
+  }
+  
+  .section-main-heading h2 {
+    font-size: 2.5rem;
   }
   
   .work-interactive-container {
