@@ -26,54 +26,24 @@
   overflow: hidden;
 }
 
-.works-main-heading-container {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  text-align: left;
-  padding-left: 80px; /* aligns with container padding approx */
-  z-index: 5;
-}
-
-.works-main-heading {
-  font-size: 3.5rem;
+.bg-text-main {
+  font-size: 18vw;
   font-weight: 900;
   color: #fff;
-  margin: 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: inline-block;
-  position: relative;
-}
-
-/* Highlight accent under the heading */
-.works-main-heading::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 50%;
-  height: 6px;
-  background-color: #A3E635; /* Neon green highlight */
-  border-radius: 4px;
-}
-
-.bg-text {
-  font-size: 28vw;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.04);
   line-height: 1;
   margin: 0;
   letter-spacing: -0.05em;
-  transform: translateY(-10%) translateX(-5%);
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
 }
 
 .bg-text-right {
   position: absolute;
   right: -5%;
   top: 0;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.04);
   writing-mode: vertical-rl;
   font-size: 25vw;
   font-weight: 900;
@@ -233,8 +203,10 @@
     width: 300px;
     height: 420px;
   }
-  .bg-text {
-    font-size: 35vw;
+  .bg-text-main {
+    font-size: 25vw;
+    top: 30px;
+    left: 20px;
   }
   .work-details h2 {
     font-size: 2.5rem;
