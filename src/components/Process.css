@@ -2,6 +2,7 @@
   padding: 8rem 0;
   background-color: var(--primary-black);
   position: relative;
+  overflow: hidden;
 }
 
 .process-header {
@@ -9,157 +10,194 @@
   text-align: center;
 }
 
-.process-cards-container {
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-progress {
+  width: 100%;
+  height: 100%;
+  background: var(--primary-red);
+  border-radius: 2px;
+  box-shadow: 0 0 15px var(--primary-red);
+}
+
+.timeline-row {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8rem;
   position: relative;
 }
 
-.process-card-wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+.timeline-row:last-child {
+  margin-bottom: 0;
 }
 
-.process-card {
-  position: sticky;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4rem;
-  padding: 4rem;
-  border-radius: 2rem;
-  box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  width: 100%;
-  max-width: 1200px;
-  height: 65vh; /* Card height */
-  transform-origin: top center;
-  overflow: hidden;
-  background-color: #1a1a1a; /* Fallback */
+.timeline-row.row-left {
+  flex-direction: row-reverse;
 }
 
-.process-card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.process-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.process-card-icon {
-  font-size: 2.5rem;
-  color: var(--primary-red);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1.5rem;
-  border-radius: 1.5rem;
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: var(--primary-black);
+  border: 3px solid var(--primary-red);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.process-card-number {
-  font-size: 4rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.05); 
-  line-height: 1;
-}
-
-.process-card-title {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--primary-white);
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
 }
 
-.process-card-desc {
-  font-size: 1.25rem;
-  color: var(--text-gray);
-  line-height: 1.8;
-  max-width: 90%;
+.timeline-content {
+  width: 45%;
 }
 
-.process-card-image-container {
-  flex: 1.2;
-  height: 100%;
+.timeline-card {
+  background: #151515;
   border-radius: 1.5rem;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.timeline-card-image {
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  height: 250px;
 }
 
-.process-card-image-inner {
-  width: 100%;
-  height: 100%;
-}
-
-.process-card-image-inner img {
+.timeline-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
-/* Mobile responsive */
+.timeline-card:hover .timeline-card-image img {
+  opacity: 1;
+}
+
+.timeline-card-icon {
+  position: absolute;
+  bottom: -25px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+}
+
+.timeline-row.row-left .timeline-card-icon {
+  right: auto;
+  left: 30px;
+}
+
+.timeline-card-text {
+  padding: 3rem 2rem 2.5rem;
+}
+
+.step-number {
+  color: var(--primary-red);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-card-text h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.timeline-card-text p {
+  color: var(--text-gray);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Mobile Responsive */
 @media (max-width: 992px) {
   .process-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
   
-  .process-header {
-    margin-bottom: 3rem;
+  .timeline-container {
+    padding: 0 20px;
   }
 
-  .process-card-wrapper {
-    height: auto;
-    margin-bottom: 2rem;
+  .timeline-track {
+    left: 20px; /* Shift track to the far left on mobile */
+    transform: none;
   }
   
-  .process-card {
-    position: relative;
-    top: 0 !important; /* override the inline style on mobile */
-    transform: none !important; /* disable scale on mobile */
-    flex-direction: column-reverse;
-    height: auto;
-    padding: 2rem;
-    gap: 2rem;
-    border-radius: 1.5rem;
+  .timeline-dot {
+    left: 20px;
+    transform: translate(-50%, -50%);
+    top: 50%; /* Center dot vertically relative to row */
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
   
-  .process-card-image-container {
-    width: 100%;
-    height: 250px;
+  .timeline-row, .timeline-row.row-left {
+    flex-direction: column;
+    align-items: flex-end; /* Push content to the right */
+    margin-bottom: 4rem;
   }
   
-  .process-card-title {
-    font-size: 2rem;
+  .timeline-content {
+    width: calc(100% - 60px); /* Leave room for the track and dot */
   }
   
-  .process-card-desc {
-    font-size: 1.1rem;
-    max-width: 100%;
+  .timeline-card-image {
+    height: 200px;
   }
   
-  .process-card-header {
-    margin-bottom: 1.5rem;
+  .timeline-card-text h3 {
+    font-size: 1.5rem;
   }
-  
-  .process-card-icon {
-    font-size: 1.8rem;
-    padding: 1rem;
-    border-radius: 1rem;
-  }
-  
-  .process-card-number {
-    font-size: 2.5rem;
+
+  .timeline-card-text p {
+    font-size: 1rem;
   }
 }
-
