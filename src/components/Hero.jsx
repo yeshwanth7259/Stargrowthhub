@@ -39,8 +39,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            We Turn Clicks<br />
-            Into <span className="text-red-gradient">Customers.</span>
+            <span style={{ whiteSpace: 'nowrap' }}>We Turn Clicks</span><br />
+            <span style={{ whiteSpace: 'nowrap' }}>Into <span className="text-red-gradient">Customers.</span></span>
           </motion.h1>
           
           <motion.p 
