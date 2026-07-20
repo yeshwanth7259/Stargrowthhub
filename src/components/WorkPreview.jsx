@@ -79,6 +79,10 @@ const WorkPreview = () => {
         <h1 className="bg-text-right">WORK</h1>
       </div>
       
+      <div className="works-main-heading-container">
+        <h2 className="works-main-heading">OUR WORKS</h2>
+      </div>
+
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
       

@@ -26,6 +26,24 @@
   overflow: hidden;
 }
 
+.works-main-heading-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+
+.works-main-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 .bg-text {
   font-size: 28vw;
   font-weight: 800;
