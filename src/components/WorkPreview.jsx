@@ -19,13 +19,13 @@ const worksData = [
     id: 3,
     title: "HEALTHCARE\nAPP",
     date: "NOV 24, 2023",
-    image: "https://images.unsplash.com/photo-1576091160399-11cbbe86e8ef?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 4,
     title: "REAL ESTATE\nPORTAL",
     date: "JAN 15, 2024",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
   }
 ];
 
