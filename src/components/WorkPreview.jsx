@@ -7,19 +7,19 @@ const worksData = [
     id: 1,
     title: "JAPANESE\nCUISINE",
     date: "MAY 7, 2023",
-    image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 2,
     title: "E-COMMERCE\nPLATFORM",
     date: "AUG 12, 2023",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 3,
     title: "HEALTHCARE\nAPP",
     date: "NOV 24, 2023",
-    image: "https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576091160399-11cbbe86e8ef?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 4,
@@ -74,8 +74,8 @@ const WorkPreview = () => {
 
   return (
     <section className="interactive-work-section">
+      <h1 className="bg-text-main">WORK</h1>
       <div className="bg-text-wrapper">
-        <h1 className="bg-text-main">WORK</h1>
         <h1 className="bg-text-right">WORK</h1>
       </div>
       

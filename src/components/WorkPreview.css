@@ -36,7 +36,7 @@
   position: absolute;
   top: 80px;
   left: 10%;
-  z-index: 1;
+  z-index: 10;
 }
 
 .bg-text-right {
@@ -143,8 +143,8 @@
 .work-info-overlay {
   position: absolute;
   right: 0;
-  bottom: 0;
-  transform: translateY(150px);
+  top: 50%;
+  transform: translateY(60px);
   text-align: right;
   pointer-events: none;
   width: max-content;
