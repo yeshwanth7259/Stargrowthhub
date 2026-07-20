@@ -1,16 +1,10 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import './GoogleReviews.css';
 
 const GoogleLogo = () => (
-  <svg className="google-logo-main" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
-    <path d="M115.75,47.18c0,7.18-5.83,12.39-12.89,12.39c-7.06,0-12.89-5.21-12.89-12.39c0-7.23,5.83-12.44,12.89-12.44 C109.92,34.74,115.75,39.95,115.75,47.18z M95.42,47.18c0,4.45,3.13,7.67,7.44,7.67c4.26,0,7.44-3.22,7.44-7.67 c0-4.5-3.13-7.72-7.44-7.72C98.55,39.46,95.42,42.68,95.42,47.18z" fill="#EA4335"/>
-    <path d="M143.14,47.18c0,7.18-5.83,12.39-12.89,12.39c-7.06,0-12.89-5.21-12.89-12.39c0-7.23,5.83-12.44,12.89-12.44 C137.31,34.74,143.14,39.95,143.14,47.18z M122.82,47.18c0,4.45,3.13,7.67,7.44,7.67c4.26,0,7.44-3.22,7.44-7.67 c0-4.5-3.13-7.72-7.44-7.72C125.95,39.46,122.82,42.68,122.82,47.18z" fill="#FBBC05"/>
-    <path d="M167.64,35.59v22.75c0,9.37-5.35,13.2-11.83,13.2c-5.96,0-9.51-3.97-10.88-7.24l4.83-2.03 c0.85,2.03,3.13,4.55,6.06,4.55c3.97,0,6.43-2.46,6.43-7.05v-1.7h-0.19c-1.18,1.47-3.41,2.84-6.34,2.84 c-6.01,0-11.45-5.11-11.45-12.34c0-7.15,5.44-12.39,11.45-12.39c2.93,0,5.16,1.37,6.34,2.79h0.19v-2.37H167.64z M163.1,47.23 c0-4.35-2.84-7.67-6.58-7.67c-3.83,0-6.91,3.31-6.91,7.67c0,4.31,3.08,7.62,6.91,7.62C160.26,54.85,163.1,51.54,163.1,47.23z" fill="#4285F4"/>
-    <path d="M182.25,23.33v35.15h-5.3v-35.15H182.25z" fill="#34A853"/>
-    <path d="M205.52,47.79l-4.59-13.06h5.53l2.84,9.22h0.09l2.88-9.22h5.49l-6.86,18.82L205.52,47.79z M193.36,58.48l-5.3-17.5l-5.3,17.5 h-5.63l8.09-25.07h5.73l5.06,16.51h0.09l5.11-16.51h5.73l8.14,25.07H193.36z" fill="#5F6368"/>
-    <path d="M72.93,42.42h-22.1v5.16h12.83c-0.66,2.98-3.41,8.37-12.83,8.37c-7.71,0-14.05-6.43-14.05-14.38 c0-7.95,6.34-14.38,14.05-14.38c4.4,0,7.38,1.89,9.08,3.5l4.12-4.02C80.23,23.35,74.59,20.7,67.6,20.7 c-12.3,0-22.33,10-22.33,22.33c0,12.34,10.03,22.33,22.33,22.33c12.87,0,21.43-9.03,21.43-21.85 C89.03,44.59,88.9,43.46,72.93,42.42z" fill="#4285F4"/>
-  </svg>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo" className="google-logo-main" />
 );
 
 const SmallGoogleLogo = () => (
@@ -47,7 +41,13 @@ const GoogleReviews = () => {
   return (
     <section className="google-reviews-section">
       <div className="container reviews-container">
-        <div className="reviews-left">
+        <motion.div 
+          className="reviews-left"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="google-badge">Google Reviews</div>
           <h2 className="rating-text">Rated 4.8/5</h2>
           <GoogleLogo />
@@ -58,11 +58,24 @@ const GoogleReviews = () => {
           <a href="https://share.google/4UbBE7PGqulgomNaE" target="_blank" rel="noopener noreferrer" className="view-more-link">
             View More <FaStar style={{fontSize: '14px', color: '#174ea6'}} />
           </a>
-        </div>
+        </motion.div>
         
-        <div className="reviews-right">
-          {reviews.map((review) => (
-            <div className="review-card" key={review.id}>
+        <motion.div 
+          className="reviews-right"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {reviews.map((review, index) => (
+            <motion.div 
+              className="review-card" 
+              key={review.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 + 0.4, duration: 0.5 }}
+            >
               <SmallGoogleLogo />
               <h3 className="reviewer-name">{review.name}</h3>
               <p className="reviewer-subtitle">{review.subtitle}</p>
@@ -70,9 +83,9 @@ const GoogleReviews = () => {
                 <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
               </div>
               <p className="review-text">{review.text}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

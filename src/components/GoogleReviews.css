@@ -80,7 +80,13 @@
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 20px; /* give more space so shadows don't cut off */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reviews-right::-webkit-scrollbar {
+  display: none;
 }
 
 .review-card {
