@@ -7,6 +7,7 @@ import WorkPreview from '../components/WorkPreview';
 import LatestInsights from '../components/LatestInsights';
 import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
+import GoogleReviews from '../components/GoogleReviews';
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <LatestInsights />
       <FAQ />
       <CTA />
+      <GoogleReviews />
     </main>
   );
 };
