@@ -126,8 +126,8 @@
 
 .tilted-image-wrapper {
   position: absolute;
-  width: 420px;
-  height: 580px;
+  width: 640px; /* Much wider */
+  height: 460px; /* More horizontal ratio */
 }
 
 .image-backdrop {
@@ -198,8 +198,8 @@
 
 @media (max-width: 1200px) {
   .tilted-image-wrapper {
-    width: 320px;
-    height: 450px;
+    width: 480px;
+    height: 340px;
   }
   .work-details h2 {
     font-size: 2.5rem; /* Scale down title to prevent overlap on laptops */
@@ -210,7 +210,6 @@
   }
 }
 
-@media (max-width: 992px) {
 @media (max-width: 992px) {
   .work-heading-section {
     padding: 80px 20px 10px 20px;
@@ -238,8 +237,8 @@
     width: 100%;
   }
   .tilted-image-wrapper {
-    width: 280px;
-    height: 380px;
+    width: 360px;
+    height: 260px;
   }
   .nav-area {
     position: absolute;
@@ -295,7 +294,7 @@
     margin-bottom: 40px;
   }
   .tilted-image-wrapper {
-    width: 250px;
-    height: 350px;
+    width: 300px;
+    height: 220px;
   }
 }
