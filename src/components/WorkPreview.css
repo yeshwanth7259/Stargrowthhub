@@ -7,8 +7,10 @@
   color: white;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 120px 0 80px;
 }
 
 .watermark-side {
@@ -26,10 +28,10 @@
 }
 
 .section-main-heading {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
   z-index: 20;
 }
 
@@ -187,7 +189,8 @@
   .interactive-work-section {
     padding: 80px 0;
     height: auto;
-    display: block; /* Ensure it doesn't flex-row the container */
+    display: flex;
+    flex-direction: column;
   }
   
   .watermark-side {
@@ -197,9 +200,7 @@
   }
   
   .section-main-heading {
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 40px;
   }
   
   .section-main-heading h2 {
