@@ -4,7 +4,7 @@ import './AnimatedBackground.css';
 
 const AnimatedBackground = () => {
   // Generate random bubbles
-  const bubbles = Array.from({ length: 15 }).map((_, i) => {
+  const bubbles = Array.from({ length: 6 }).map((_, i) => {
     const size = Math.random() * 300 + 100; // Between 100px and 400px
     const left = Math.random() * 100;
     const top = Math.random() * 100;

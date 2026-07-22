@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:5173",
+      "localStorage": [
+        {
+          "name": "starGrowthHub_user",
+          "value": "{\"email\":\"admin@example.com\",\"name\":\"admin\",\"token\":\"mock-jwt-token-12345\"}"
+        }
+      ]
+    }
+  ]
+}

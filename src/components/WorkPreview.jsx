@@ -5,27 +5,39 @@ import './WorkPreview.css';
 const worksData = [
   {
     id: 1,
-    title: "RESTAURANT\nMANAGEMENT",
-    date: "MAY 7, 2023",
-    image: "https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop",
+    title: "HOSPITAL & \nHEALTHCARE",
+    date: "CLINIC MANAGEMENT",
+    image: "https://images.unsplash.com/photo-1749087869560-1f00fe44b58e?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 2,
-    title: "E-COMMERCE\nPLATFORM",
-    date: "AUG 12, 2023",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop",
+    title: "REAL ESTATE \nDEVELOPMENT",
+    date: "PROPERTY PORTAL",
+    image: "https://images.unsplash.com/photo-1722421492323-eaf9c401befe?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 3,
-    title: "HEALTHCARE\nAPP",
-    date: "NOV 24, 2023",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop",
+    title: "RESTAURANT \n& DINING",
+    date: "HOSPITALITY BRANDING",
+    image: "https://images.unsplash.com/photo-1582228096960-7f5d2ec4aa8e?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 4,
-    title: "REAL ESTATE\nPORTAL",
-    date: "JAN 15, 2024",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+    title: "FITNESS & \nGYM",
+    date: "MEMBER ACQUISITION",
+    image: "https://images.unsplash.com/photo-1682241367368-6387d5d4921a?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    title: "EDUCATION",
+    date: "STUDENT ENROLLMENT",
+    image: "https://images.unsplash.com/photo-1639910232134-8cc7505c4e64?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    title: "CORPORATE \nENTERPRISE",
+    date: "B2B LEAD GENERATION",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
   }
 ];
 
@@ -77,11 +89,11 @@ const WorkPreview = () => {
       
       {/* Top Left Visible Heading */}
       <div className="section-main-heading">
-        <h2>WORK</h2>
+        <h2 style={{ letterSpacing: '-0.02em', fontSize: 'clamp(2rem, 5vw, 4.5rem)' }}>What Business Do You Own?</h2>
       </div>
 
       {/* Giant Vertical Watermark on the Left Edge */}
-      <div className="watermark-side">WORK</div>
+      <div className="watermark-side" style={{ opacity: 0.03, fontSize: '12vw' }}>BUSINESS</div>
       
       <div className="circle-decoration"></div>
       <div className="dot-decoration"></div>
@@ -105,10 +117,17 @@ const WorkPreview = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className="tilted-wrapper"
+              className="tilted-wrapper glass-panel"
+              whileHover={{ scale: 1.05, rotate: 0 }}
+              style={{ overflow: 'hidden' }}
             >
               <div className="image-backdrop"></div>
-              <img src={currentWork.image} alt={currentWork.title.replace('\n', ' ')} />
+              <motion.img 
+                src={currentWork.image} 
+                alt={currentWork.title.replace('\n', ' ')} 
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.6 }}
+              />
             </motion.div>
           </AnimatePresence>
 

@@ -98,8 +98,8 @@
   }
   
   .stats-left {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
   }
   
   .stats-desc {
@@ -108,6 +108,11 @@
 }
 
 @media (max-width: 768px) {
+  .stats-section {
+    padding-top: 10rem;
+    margin-top: 2rem; 
+  }
+
   .stats-right {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;

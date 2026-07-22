@@ -2,14 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap');
 
 :root {
-  --primary-black: #030303;
-  --secondary-black: #0a0a0a;
-  --tertiary-black: #141414;
-  --primary-red: #E63946;
-  --accent-red: #FF4D5A;
-  --primary-white: #F8F9FA;
-  --text-gray: #A0AEC0;
-  --text-light: #E2E8F0;
+  --primary-black: #0a0a0b;
+  --secondary-black: #111113;
+  --tertiary-black: #18181b;
+  --primary-red: #c31f2e;
+  --accent-red: #ff4d3d;
+  --primary-white: #f4f2ec;
+  --text-gray: #9c9c9f;
+  --text-light: #6c6c70;
+  
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
   
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --font-main: 'Outfit', sans-serif;

@@ -67,6 +67,7 @@ const Stats = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            style={{ letterSpacing: '0.15em' }}
           >
             PROVEN IMPACT
           </motion.p>
@@ -77,8 +78,8 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            Real Strategies.<br/>
-            Real Growth.
+            The Scoreboard<br/>
+            <span className="text-red">Doesn't Lie.</span>
           </motion.h2>
           <motion.p 
             className="stats-desc"

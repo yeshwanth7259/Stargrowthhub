@@ -4,6 +4,8 @@ import { FaArrowRight } from 'react-icons/fa';
 import laptopImg from '../assets/laptop_cta.png';
 import './CTA.css';
 
+import MagneticButton from './MagneticButton';
+
 const CTA = () => {
   return (
     <section className="cta-section">
@@ -15,7 +17,7 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Ready to Grow Your Business?
+            Your Growth Is Overdue.<br/>Let's Fix That.
           </motion.h2>
           <motion.p 
             className="cta-subtitle"
@@ -32,9 +34,9 @@ const CTA = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <a href="/contact" className="btn btn-primary cta-btn">
+            <MagneticButton href="/contact" className="btn btn-primary cta-btn">
               Get Your Free Consultation <span className="btn-icon-circle" style={{marginLeft: '15px'}}><FaArrowRight /></span>
-            </a>
+            </MagneticButton>
           </motion.div>
         </div>
         <div className="cta-visual">

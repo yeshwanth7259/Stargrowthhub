@@ -1,96 +1,97 @@
-.process-carousel-section {
-  position: relative;
-  height: 400vh; /* Determines how long the user has to scroll to complete the carousel */
+.process-stack-section {
+  padding-top: 100px;
+  padding-bottom: 200px;
   background-color: var(--primary-black);
+  position: relative;
 }
 
-.process-carousel-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  padding-top: 2rem;
-}
-
-.process-carousel-header {
+.process-stack-header {
   text-align: center;
-  margin-bottom: 2rem;
-  flex-shrink: 0;
+  margin-bottom: 5rem;
 }
 
-.process-carousel-track {
-  display: flex;
-  width: 400vw; /* 4 slides, each 100vw */
-  height: 65vh; /* Fixed height for the carousel */
+.process-stack-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.process-carousel-slide {
-  width: 100vw;
-  height: 100%;
+.process-stack-card-container {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5vw; /* Padding so cards don't touch edges */
+  position: relative;
 }
 
-.carousel-card {
+.process-stack-card {
+  position: sticky;
   width: 100%;
-  max-width: 1100px;
-  height: 100%;
-  background: #111;
-  border-radius: 2rem;
+  height: 60vh;
+  min-height: 450px;
+  max-height: 600px;
+  background: var(--secondary-black);
+  border-radius: 30px;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 -20px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.05);
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.carousel-card-image {
+.process-card-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.process-card-inner.layout-left {
+  flex-direction: row;
+}
+
+.process-card-inner.layout-right {
+  flex-direction: row-reverse;
+}
+
+.process-card-image-wrapper {
   flex: 1;
   position: relative;
-  height: 100%;
+  overflow: hidden;
 }
 
-.carousel-card-image img {
+.process-card-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8;
-  transition: opacity 0.4s;
+  opacity: 0.6;
 }
 
-.carousel-card:hover .carousel-card-image img {
-  opacity: 1;
-}
-
-.carousel-card-number {
+.process-card-number-bg {
   position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-size: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.08);
+  pointer-events: none;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -10px;
 }
 
-.carousel-card-content {
+.process-card-content-wrapper {
   flex: 1;
-  padding: 5rem;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  background: linear-gradient(135deg, rgba(20,20,20,1) 0%, rgba(10,10,10,1) 100%);
 }
 
-.carousel-card-icon {
-  width: 80px;
-  height: 80px;
+.process-card-icon {
+  width: 70px;
+  height: 70px;
   background: var(--primary-red);
   border-radius: 1.5rem;
   display: flex;
@@ -99,70 +100,80 @@
   font-size: 2rem;
   color: white;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
 }
 
-.carousel-card-text h3 {
+.process-card-title {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 900;
   color: white;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
-.carousel-card-text p {
-  font-size: 1.4rem;
-  color: var(--text-gray);
-  line-height: 1.8;
+.process-card-desc {
+  font-size: 1.15rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Hover effects */
+.process-stack-card:hover .process-card-image-wrapper img {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
 }
 
 /* Mobile Responsive */
 @media (max-width: 992px) {
-  .process-carousel-sticky {
-    padding-top: 5rem;
+  .process-stack-section {
+    padding-top: 60px;
+    padding-bottom: 40px; /* Reduced massive gap */
+  }
+
+  .process-stack-card-container {
+    height: auto;
+    margin-bottom: 2rem;
   }
   
-  .process-carousel-header {
-    margin-bottom: 1rem;
+  .process-stack-card {
+    position: relative;
+    height: auto;
+    max-height: none;
+    top: 0 !important;
   }
 
-  .process-carousel-track {
-    height: 75vh;
-  }
-
-  .carousel-card {
+  .process-card-inner.layout-left,
+  .process-card-inner.layout-right {
     flex-direction: column;
-    height: 100%;
   }
 
-  .carousel-card-image {
-    flex: 0.8;
+  .process-card-image-wrapper {
+    height: 220px;
+    flex: none;
   }
 
-  .carousel-card-content {
-    flex: 1.2;
-    padding: 2rem;
+  .process-card-number-bg {
+    font-size: 8rem;
   }
 
-  .carousel-card-number {
-    font-size: 3rem;
-    top: 1rem;
-    left: 1rem;
+  .process-card-content-wrapper {
+    padding: 2.5rem 1.5rem;
+    flex: none;
   }
 
-  .carousel-card-icon {
-    width: 50px;
-    height: 50px;
+  .process-card-icon {
+    width: 60px;
+    height: 60px;
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .carousel-card-text h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  .process-card-title {
+    font-size: 2.2rem;
   }
 
-  .carousel-card-text p {
-    font-size: 1rem;
+  .process-card-desc {
+    font-size: 1.05rem;
   }
 }

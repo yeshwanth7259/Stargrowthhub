@@ -1,0 +1,248 @@
+.portal-page {
+  background-color: var(--primary-black);
+  min-height: 100vh;
+  padding: 120px 0 60px 0; /* offset navbar */
+}
+
+.portal-header {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.portal-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.portal-header p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+.portal-sidebar {
+  padding: 2rem;
+  border-radius: 20px;
+  height: fit-content;
+}
+
+.portal-sidebar h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.account-info p {
+  color: #ccc;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.account-info strong {
+  color: white;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(46, 213, 115, 0.1);
+  color: #2ed573;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(46, 213, 115, 0.2);
+}
+
+.dot.active {
+  width: 8px;
+  height: 8px;
+  background-color: #2ed573;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #2ed573;
+}
+
+/* Main Form Area */
+.portal-main {
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+.portal-form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1.5rem;
+}
+
+.form-icon {
+  font-size: 2rem;
+  color: var(--primary-red);
+}
+
+.portal-form-header h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.services-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.service-checkbox {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.service-checkbox:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.service-checkbox.selected {
+  background: rgba(230, 57, 70, 0.1);
+  border-color: var(--primary-red);
+  color: white;
+}
+
+.portal-select, .quotation-form textarea {
+  width: 100%;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.portal-select:focus, .quotation-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.portal-select option {
+  background-color: var(--primary-black);
+  color: white;
+}
+
+.quotation-form textarea {
+  resize: vertical;
+}
+
+.form-error-msg {
+  color: var(--primary-red);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #2ed573;
+  margin-bottom: 1.5rem;
+}
+
+.success-message h3 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@media (max-width: 992px) {
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .portal-header h1 {
+    font-size: 2.2rem;
+  }
+  .portal-main {
+    padding: 1.5rem 1rem;
+  }
+  .services-checkbox-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .service-checkbox {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  .portal-select, .quotation-form textarea {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+  .quotation-form textarea {
+    min-height: 80px;
+  }
+  .btn-primary {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}

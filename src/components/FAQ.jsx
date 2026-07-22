@@ -40,7 +40,7 @@ const FAQ = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            Frequently Asked Questions
+            Questions Every Smart Client Asks.
           </motion.h2>
           <motion.p 
             className="faq-desc"

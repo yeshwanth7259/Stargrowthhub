@@ -20,7 +20,7 @@ const LatestInsights = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              Latest <span className="text-red-gradient">Insights</span>
+              Straight From <span className="text-red-gradient">The Trenches.</span>
             </motion.h2>
             <motion.p 
               className="section-description"
@@ -29,7 +29,7 @@ const LatestInsights = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.2 }}
             >
-              Stay ahead of the curve with our expert strategies and digital marketing trends.
+              Field notes and strategies straight from the trenches.
             </motion.p>
           </div>
           <motion.div
@@ -38,24 +38,32 @@ const LatestInsights = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.3 }}
           >
-            <Link to="/blog" className="btn btn-outline view-all-btn">
-              View All Articles
+            <Link to="/blog" className="btn btn-outline view-all-btn glass-panel">
+              View All Dispatch
             </Link>
           </motion.div>
         </div>
 
-        <div className="insights-cards-container">
+        <div className="insights-cards-container" style={{ perspective: '1000px' }}>
           {recentBlogs.map((blog, i) => (
             <motion.div 
-              className="insight-card"
+              className="insight-card glass-panel"
               key={blog.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, rotateX: -30, y: 40 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              whileHover={{ y: -10, rotateX: 5 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="insight-image-wrapper">
-                <img src={blog.image} alt={blog.title} className="insight-image" />
+              <div className="insight-image-wrapper" style={{ overflow: 'hidden' }}>
+                <motion.img 
+                  src={blog.image} 
+                  alt={blog.title} 
+                  className="insight-image" 
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.4 }}
+                />
                 <span className="insight-category">{blog.category}</span>
               </div>
               <div className="insight-content">
@@ -67,7 +75,7 @@ const LatestInsights = () => {
                 <h3 className="insight-title">{blog.title}</h3>
                 <p className="insight-excerpt">{blog.metaDescription}</p>
                 <Link to={`/blog/${blog.slug}`} className="insight-read-more" style={{ position: 'relative', zIndex: 10 }}>
-                  Read Article <FaArrowRight />
+                  Read Dispatch <FaArrowRight />
                 </Link>
               </div>
             </motion.div>

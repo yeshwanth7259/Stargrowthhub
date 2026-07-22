@@ -1,47 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaSearch, FaHashtag, FaRocket, FaPenNib, FaLaptopCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
+import { servicesData } from '../data/servicesData';
 import './Services.css';
-import socialPileImg from '../assets/service_social_pile.png';
-
-const services = [
-  {
-    icon: <FaSearch />,
-    title: "Search Engine Optimization",
-    desc: "Rank higher on Google and drive organic traffic that converts.",
-    image: "https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    icon: <FaHashtag />,
-    title: "Social Media Marketing",
-    desc: "Engage your audience and build a brand that people love.",
-    image: socialPileImg
-  },
-  {
-    icon: <FaRocket />,
-    title: "Google Ads & PPC",
-    desc: "Get instant visibility and maximum ROI with smart ad campaigns.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    icon: <FaPenNib />,
-    title: "Content Marketing",
-    desc: "Content that attracts, informs, and converts your audience.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    icon: <FaLaptopCode />,
-    title: "Web Design & Dev",
-    desc: "Beautiful, fast, and conversion-focused websites.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    icon: <FaChartLine />,
-    title: "Analytics & Reporting",
-    desc: "Track performance and make data-driven decisions.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
-  }
-];
 
 const Services = () => {
   return (
@@ -54,8 +16,9 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            style={{ letterSpacing: '0.15em' }}
           >
-            WHAT WE DO
+            THE FULL STACK
           </motion.p>
           <motion.h2 
             className="section-title"
@@ -64,33 +27,45 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            Powerful Digital Marketing <br/>
-            Services That <span className="text-red">Drive Results</span>
+            Built To Rank. Built To Convert.<br/>
+            <span className="text-red">Built To Scale.</span>
           </motion.h2>
         </div>
 
         <div className="services-stack-container">
-          {services.map((service, index) => (
-            <div 
-              className="stack-card" 
-              key={index}
+          {servicesData.map((service, index) => (
+            <motion.div 
+              className="stack-card glass-panel" 
+              key={service.id}
               style={{ top: `calc(130px + ${index * 25}px)` }}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
+              whileHover="hover"
             >
               <div className="stack-card-inner">
                 <div className="stack-card-content">
-                  <div className="stack-card-icon">{service.icon}</div>
+                  <motion.div 
+                    className="stack-card-icon"
+                    variants={{
+                      hover: { rotate: [0, -10, 10, -5, 5, 0], scale: 1.1, transition: { duration: 0.5 } }
+                    }}
+                  >
+                    {service.icon}
+                  </motion.div>
                   <h3 className="stack-card-title">{service.title}</h3>
-                  <p className="stack-card-desc">{service.desc}</p>
-                  <a href="#contact" className="stack-card-link">
+                  <p className="stack-card-desc">{service.shortDesc}</p>
+                  <Link to={`/services/${service.slug}`} className="stack-card-link">
                     Explore <FaArrowRight />
-                  </a>
+                  </Link>
                 </div>
                 <div className="stack-card-image">
                   <img src={service.image} alt={service.title} loading="lazy" />
                   <div className="image-overlay"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

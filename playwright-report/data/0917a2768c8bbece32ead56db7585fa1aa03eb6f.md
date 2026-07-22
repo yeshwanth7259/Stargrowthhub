@@ -1,0 +1,545 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual\homepage.spec.js >> Homepage visual regression test
+- Location: tests\visual\homepage.spec.js:3:1
+
+# Error details
+
+```
+Error: A snapshot doesn't exist at C:\stargrowthhub\tests\visual\homepage.spec.js-snapshots\homepage-Mobile-Safari-win32.png, writing actual.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - link "Star Growth Hub" [ref=e7]:
+        - /url: /
+        - img "Star Growth Hub" [ref=e8]
+      - img [ref=e10] [cursor=pointer]
+  - generic [ref=e12]:
+    - main [ref=e13]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]: Clicks
+            - generic [ref=e19]: Are
+            - generic [ref=e20]: Cheap.
+            - generic [ref=e21]: Customers
+            - generic [ref=e22]: Aren't.
+            - generic [ref=e23]: We
+            - generic [ref=e24]: Deliver
+            - generic [ref=e25]: Both.
+          - paragraph [ref=e26]: Data-driven strategies. Creative campaigns. Measurable growth. Let's engineer your brand's trajectory.
+          - generic [ref=e27]:
+            - link "Our Arsenal" [ref=e28] [cursor=pointer]:
+              - /url: "#services"
+              - text: Our Arsenal
+              - img [ref=e29]
+            - link "Book a Call" [ref=e31] [cursor=pointer]:
+              - /url: tel:+918904823979
+          - generic [ref=e32]:
+            - paragraph [ref=e33]: Trusted by 50+ Growing Brands
+            - generic [ref=e34]:
+              - generic [ref=e35]:
+                - img [ref=e36]
+                - text: TechNova
+              - generic [ref=e38]:
+                - img [ref=e39]
+                - text: BrightMart
+              - generic [ref=e41]:
+                - img [ref=e42]
+                - text: Leafy
+        - img "Rocket taking off" [ref=e46]
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: THE FULL STACK
+          - heading "Built To Rank. Built To Convert. Built To Scale." [level=2] [ref=e52]:
+            - text: Built To Rank. Built To Convert.
+            - text: Built To Scale.
+        - generic [ref=e53]:
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - img [ref=e58]
+              - heading "Search Engine Optimization" [level=3] [ref=e60]
+              - paragraph [ref=e61]: Rank higher on Google and drive organic traffic that converts.
+              - link "Explore" [ref=e62]:
+                - /url: /services/seo
+                - text: Explore
+                - img [ref=e63]
+            - generic:
+              - img "Search Engine Optimization"
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - img [ref=e69]
+              - heading "Social Media Marketing" [level=3] [ref=e71]
+              - paragraph [ref=e72]: Engage your audience and build a brand that people love.
+              - link "Explore" [ref=e73]:
+                - /url: /services/social-media-marketing
+                - text: Explore
+                - img [ref=e74]
+            - generic:
+              - img "Social Media Marketing"
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - img [ref=e80]
+              - heading "Google Ads & PPC" [level=3] [ref=e82]
+              - paragraph [ref=e83]: Get instant visibility and maximum ROI with smart ad campaigns.
+              - link "Explore" [ref=e84]:
+                - /url: /services/google-ads
+                - text: Explore
+                - img [ref=e85]
+            - generic:
+              - img "Google Ads & PPC"
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - img [ref=e91]
+              - heading "Content Marketing" [level=3] [ref=e93]
+              - paragraph [ref=e94]: Content that attracts, informs, and converts your audience.
+              - link "Explore" [ref=e95]:
+                - /url: /services/content-marketing
+                - text: Explore
+                - img [ref=e96]
+            - generic:
+              - img "Content Marketing"
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - img [ref=e102]
+              - heading "Web Design & Dev" [level=3] [ref=e104]
+              - paragraph [ref=e105]: Beautiful, fast, and conversion-focused websites.
+              - link "Explore" [ref=e106]:
+                - /url: /services/web-development
+                - text: Explore
+                - img [ref=e107]
+            - generic:
+              - img "Web Design & Dev"
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - img [ref=e113]
+              - heading "CRM Integration" [level=3] [ref=e115]
+              - paragraph [ref=e116]: Centralize customer data and automate your sales pipeline.
+              - link "Explore" [ref=e117]:
+                - /url: /services/crm-integration
+                - text: Explore
+                - img [ref=e118]
+            - generic:
+              - img "CRM Integration"
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: PROVEN IMPACT
+          - heading "The Scoreboard Doesn't Lie." [level=2] [ref=e124]:
+            - text: The Scoreboard
+            - text: Doesn't Lie.
+          - paragraph [ref=e125]: We focus on what matters — results that impact your bottom line.
+          - link "View Case Studies" [ref=e127] [cursor=pointer]:
+            - /url: /work
+            - text: View Case Studies
+            - img [ref=e129]
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e134]
+            - heading "0 +" [level=3] [ref=e136]:
+              - generic [ref=e137]:
+                - generic [ref=e138]: "0"
+                - generic [ref=e139]: +
+            - paragraph [ref=e140]: Projects Completed
+          - generic [ref=e141]:
+            - img [ref=e143]
+            - heading "0 %" [level=3] [ref=e145]:
+              - generic [ref=e146]:
+                - generic [ref=e147]: "0"
+                - generic [ref=e148]: "%"
+            - paragraph [ref=e149]: Client Satisfaction
+          - generic [ref=e150]:
+            - img [ref=e152]
+            - heading "0 X" [level=3] [ref=e154]:
+              - generic [ref=e155]:
+                - generic [ref=e156]: "0"
+                - generic [ref=e157]: X
+            - paragraph [ref=e158]: Average ROI Growth
+          - generic [ref=e159]:
+            - img [ref=e161]
+            - heading "0 +" [level=3] [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]: "0"
+                - generic [ref=e166]: +
+            - paragraph [ref=e167]: Industries Served
+      - generic [ref=e169]:
+        - generic [ref=e170]:
+          - paragraph [ref=e171]: THE PLAYBOOK
+          - heading "How We Turn Budgets Into Breakthroughs." [level=2] [ref=e172]:
+            - text: How We Turn Budgets
+            - text: Into Breakthroughs.
+        - generic [ref=e173]:
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - img "Discover & Audit" [ref=e178]
+              - generic: "01"
+            - generic [ref=e179]:
+              - img [ref=e181]
+              - heading "Discover & Audit" [level=3] [ref=e183]
+              - paragraph [ref=e184]: We tear down your current strategy, analyze your competitors, and identify the hidden bottlenecks in your funnel. Our Indian market experts dig deep into your data to uncover massive growth opportunities.
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - img "Strategize" [ref=e189]
+              - generic: "02"
+            - generic [ref=e190]:
+              - img [ref=e192]
+              - heading "Strategize" [level=3] [ref=e194]
+              - paragraph [ref=e195]: We build a bespoke, data-driven blueprint tailored exactly to your revenue goals. No templates, just pure strategy developed by our elite team in Mumbai, designed to dominate local and global search engines.
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - img "Aggressive Execution" [ref=e200]
+              - generic: "03"
+            - generic [ref=e201]:
+              - img [ref=e203]
+              - heading "Aggressive Execution" [level=3] [ref=e205]
+              - paragraph [ref=e206]: Our team deploys campaigns, launches platforms, and begins capturing market share immediately. From high-converting ad copy to technical SEO, our Bangalore-based tech experts execute flawlessly.
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - img "Scale & Optimize" [ref=e211]
+              - generic: "04"
+            - generic [ref=e212]:
+              - img [ref=e214]
+              - heading "Scale & Optimize" [level=3] [ref=e216]
+              - paragraph [ref=e217]: We don't set it and forget it. We continuously A/B test and optimize to drive Cost Per Acquisition down and ROI up, ensuring your business scales rapidly and sustainably.
+      - generic [ref=e218]:
+        - heading "What Business Do You Own?" [level=2] [ref=e220]
+        - generic: BUSINESS
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img "HOSPITAL & HEALTHCARE" [ref=e227]
+            - generic:
+              - button "PREV" [ref=e228] [cursor=pointer]: PREV
+              - button "NEXT" [ref=e230] [cursor=pointer]: NEXT
+          - generic [ref=e234]:
+            - heading "HOSPITAL & HEALTHCARE" [level=2] [ref=e235]:
+              - text: HOSPITAL &
+              - text: HEALTHCARE
+            - paragraph [ref=e236]: CLINIC MANAGEMENT
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - heading "Straight From The Trenches." [level=2] [ref=e241]
+            - paragraph [ref=e242]: Field notes and strategies straight from the trenches.
+          - link "View All Dispatch" [ref=e244] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - 'img "The Future of SEO in 2024: AI and Search Intent" [ref=e248]'
+              - generic [ref=e249]: SEO
+            - generic [ref=e250]:
+              - generic [ref=e251]:
+                - generic [ref=e252]: July 12, 2024
+                - generic [ref=e253]: •
+                - generic [ref=e254]: 5 min read
+              - 'heading "The Future of SEO in 2024: AI and Search Intent" [level=3] [ref=e255]'
+              - paragraph [ref=e256]: Discover how Artificial Intelligence and evolving search intent are fundamentally changing the SEO landscape.
+              - link "Read Dispatch" [ref=e257]:
+                - /url: /blog/the-future-of-seo-in-2024
+                - text: Read Dispatch
+                - img [ref=e258]
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - img "Mastering Social Media Marketing for B2B Brands" [ref=e262]
+              - generic [ref=e263]: SOCIAL MEDIA
+            - generic [ref=e264]:
+              - generic [ref=e265]:
+                - generic [ref=e266]: July 08, 2024
+                - generic [ref=e267]: •
+                - generic [ref=e268]: 4 min read
+              - heading "Mastering Social Media Marketing for B2B Brands" [level=3] [ref=e269]
+              - paragraph [ref=e270]: Why LinkedIn is no longer just a resume platform, but the ultimate lead generation machine.
+              - link "Read Dispatch" [ref=e271]:
+                - /url: /blog/mastering-social-media-marketing-for-b2b-brands
+                - text: Read Dispatch
+                - img [ref=e272]
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - 'img "PPC vs. Organic SEO: Which Drives Better ROI?" [ref=e276]'
+              - generic [ref=e277]: PAID ADVERTISING
+            - generic [ref=e278]:
+              - generic [ref=e279]:
+                - generic [ref=e280]: July 03, 2024
+                - generic [ref=e281]: •
+                - generic [ref=e282]: 6 min read
+              - 'heading "PPC vs. Organic SEO: Which Drives Better ROI?" [level=3] [ref=e283]'
+              - paragraph [ref=e284]: An in-depth analysis of paid advertising versus organic search traffic, and how to balance both.
+              - link "Read Dispatch" [ref=e285]:
+                - /url: /blog/ppc-vs-organic-seo-which-drives-better-roi
+                - text: Read Dispatch
+                - img [ref=e286]
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - heading "Questions Every Smart Client Asks." [level=2] [ref=e291]
+          - paragraph [ref=e292]: Find answers to common questions about our web development and digital marketing services.
+        - generic [ref=e293]:
+          - generic [ref=e295] [cursor=pointer]:
+            - heading "Why should I choose custom web development over a pre-built template?" [level=3] [ref=e296]
+            - img [ref=e298]
+          - generic [ref=e301] [cursor=pointer]:
+            - heading "How long will it take to deliver my website?" [level=3] [ref=e302]
+            - img [ref=e304]
+          - generic [ref=e307] [cursor=pointer]:
+            - heading "Do you offer website maintenance after completion?" [level=3] [ref=e308]
+            - img [ref=e310]
+          - generic [ref=e313] [cursor=pointer]:
+            - heading "How do you ensure my website loads faster?" [level=3] [ref=e314]
+            - img [ref=e316]
+      - generic [ref=e319]:
+        - generic [ref=e320]:
+          - heading "Your Growth Is Overdue. Let's Fix That." [level=2] [ref=e321]:
+            - text: Your Growth Is Overdue.
+            - text: Let's Fix That.
+          - paragraph [ref=e322]: Let's build a strategy that gets you more leads, more customers, and more growth.
+          - link "Get Your Free Consultation" [ref=e324] [cursor=pointer]:
+            - /url: /contact
+            - text: Get Your Free Consultation
+            - img [ref=e326]
+        - img "Dashboard Analytics" [ref=e330]
+      - generic [ref=e333]:
+        - generic [ref=e334]:
+          - generic [ref=e335]: Google Reviews
+          - heading "Rated 4.8/5" [level=2] [ref=e336]
+          - img "Google Logo" [ref=e337]
+          - generic [ref=e338]:
+            - img [ref=e339]
+            - img [ref=e341]
+            - img [ref=e343]
+            - img [ref=e345]
+            - img [ref=e347]
+          - paragraph [ref=e349]:
+            - text: Based on
+            - strong [ref=e350]: 250+ client reviews
+          - link "View More" [ref=e351]:
+            - /url: https://share.google/4UbBE7PGqulgomNaE
+            - text: View More
+            - img [ref=e352]
+        - generic [ref=e354]:
+          - generic [ref=e355]:
+            - img [ref=e356]
+            - heading "Silk and Satin Weaves" [level=3] [ref=e361]
+            - paragraph [ref=e362]: Koralla Sahithi
+            - generic [ref=e363]:
+              - img [ref=e364]
+              - img [ref=e366]
+              - img [ref=e368]
+              - img [ref=e370]
+              - img [ref=e372]
+            - paragraph [ref=e374]: I have had a wonderful experience with the website makers. They are very dedicated to their work. I recommend them.
+          - generic [ref=e375]:
+            - img [ref=e376]
+            - heading "Out Line Arts" [level=3] [ref=e381]
+            - paragraph [ref=e382]: Murali Bala
+            - generic [ref=e383]:
+              - img [ref=e384]
+              - img [ref=e386]
+              - img [ref=e388]
+              - img [ref=e390]
+              - img [ref=e392]
+            - paragraph [ref=e394]: I'm extremely satisfied with the website design! The colors, layout, and interface are all spot-on and reflect my vision perfectly.
+          - generic [ref=e395]:
+            - img [ref=e396]
+            - heading "We Can Interiors" [level=3] [ref=e401]
+            - paragraph [ref=e402]: Deepak Parida
+            - generic [ref=e403]:
+              - img [ref=e404]
+              - img [ref=e406]
+              - img [ref=e408]
+              - img [ref=e410]
+              - img [ref=e412]
+            - paragraph [ref=e414]: This team has a tremendous skill... They have been delivering on their commitments without fail and meeting customers expectations.
+    - generic [ref=e417]:
+      - generic [ref=e419]: STAR GROWTH HUB
+      - generic [ref=e421]: ✦
+      - generic [ref=e423]: DYNAMIC EXPERIENCES
+      - generic [ref=e425]: ✦
+      - generic [ref=e427]: DIGITAL EXCELLENCE
+      - generic [ref=e429]: ✦
+      - generic [ref=e431]: STRATEGIC GROWTH
+      - generic [ref=e433]: ✦
+      - generic [ref=e435]: INNOVATION
+      - generic [ref=e437]: ✦
+      - generic [ref=e439]: CREATIVE SOLUTIONS
+      - generic [ref=e441]: ✦
+      - generic [ref=e443]: RESULTS DRIVEN
+      - generic [ref=e445]: ✦
+      - generic [ref=e447]: STAR GROWTH HUB
+      - generic [ref=e449]: ✦
+      - generic [ref=e451]: DYNAMIC EXPERIENCES
+      - generic [ref=e453]: ✦
+      - generic [ref=e455]: DIGITAL EXCELLENCE
+      - generic [ref=e457]: ✦
+      - generic [ref=e459]: STRATEGIC GROWTH
+      - generic [ref=e461]: ✦
+      - generic [ref=e463]: INNOVATION
+      - generic [ref=e465]: ✦
+      - generic [ref=e467]: CREATIVE SOLUTIONS
+      - generic [ref=e469]: ✦
+      - generic [ref=e471]: RESULTS DRIVEN
+      - generic [ref=e473]: ✦
+      - generic [ref=e475]: STAR GROWTH HUB
+      - generic [ref=e477]: ✦
+      - generic [ref=e479]: DYNAMIC EXPERIENCES
+      - generic [ref=e481]: ✦
+      - generic [ref=e483]: DIGITAL EXCELLENCE
+      - generic [ref=e485]: ✦
+      - generic [ref=e487]: STRATEGIC GROWTH
+      - generic [ref=e489]: ✦
+      - generic [ref=e491]: INNOVATION
+      - generic [ref=e493]: ✦
+      - generic [ref=e495]: CREATIVE SOLUTIONS
+      - generic [ref=e497]: ✦
+      - generic [ref=e499]: RESULTS DRIVEN
+      - generic [ref=e501]: ✦
+      - generic [ref=e503]: STAR GROWTH HUB
+      - generic [ref=e505]: ✦
+      - generic [ref=e507]: DYNAMIC EXPERIENCES
+      - generic [ref=e509]: ✦
+      - generic [ref=e511]: DIGITAL EXCELLENCE
+      - generic [ref=e513]: ✦
+      - generic [ref=e515]: STRATEGIC GROWTH
+      - generic [ref=e517]: ✦
+      - generic [ref=e519]: INNOVATION
+      - generic [ref=e521]: ✦
+      - generic [ref=e523]: CREATIVE SOLUTIONS
+      - generic [ref=e525]: ✦
+      - generic [ref=e527]: RESULTS DRIVEN
+      - generic [ref=e529]: ✦
+      - generic [ref=e531]: STAR GROWTH HUB
+      - generic [ref=e533]: ✦
+      - generic [ref=e535]: DYNAMIC EXPERIENCES
+      - generic [ref=e537]: ✦
+      - generic [ref=e539]: DIGITAL EXCELLENCE
+      - generic [ref=e541]: ✦
+      - generic [ref=e543]: STRATEGIC GROWTH
+      - generic [ref=e545]: ✦
+      - generic [ref=e547]: INNOVATION
+      - generic [ref=e549]: ✦
+      - generic [ref=e551]: CREATIVE SOLUTIONS
+      - generic [ref=e553]: ✦
+      - generic [ref=e555]: RESULTS DRIVEN
+      - generic [ref=e557]: ✦
+    - contentinfo [ref=e558]:
+      - generic [ref=e561]:
+        - heading "Ready to Dominate?" [level=2] [ref=e562]
+        - paragraph [ref=e563]: Stop chasing trends. Start capturing market share.
+        - button "Start Your Project" [ref=e564] [cursor=pointer]:
+          - text: Start Your Project
+          - img [ref=e565]
+      - generic [ref=e568]:
+        - generic [ref=e569]:
+          - link "Star Growth Hub" [ref=e570]:
+            - /url: /
+            - img "Star Growth Hub" [ref=e571]
+          - paragraph [ref=e572]: Data-driven strategies and aggressive execution for brands that refuse to settle for average.
+          - generic [ref=e573]:
+            - link "LinkedIn" [ref=e574]:
+              - /url: "#"
+              - img [ref=e575]
+            - link "Instagram" [ref=e577]:
+              - /url: https://www.instagram.com/p/DaXgWTtkvbN/?img_index=1
+              - img [ref=e578]
+            - link "Facebook" [ref=e580]:
+              - /url: https://www.facebook.com/profile.php?id=61591562553581
+              - img [ref=e581]
+            - link "YouTube" [ref=e583]:
+              - /url: https://www.youtube.com/@StarGrowthhub-z9q
+              - img [ref=e584]
+        - generic [ref=e586]:
+          - generic [ref=e587] [cursor=pointer]:
+            - heading "Quick Links" [level=4] [ref=e588]
+            - img [ref=e590]
+          - list [ref=e592]:
+            - listitem [ref=e593]:
+              - link "Home" [ref=e594]:
+                - /url: /
+            - listitem [ref=e595]:
+              - link "About Us" [ref=e596]:
+                - /url: /about
+            - listitem [ref=e597]:
+              - link "Services" [ref=e598]:
+                - /url: /services
+            - listitem [ref=e599]:
+              - link "Case Studies" [ref=e600]:
+                - /url: /work
+            - listitem [ref=e601]:
+              - link "Insights" [ref=e602]:
+                - /url: /blog
+            - listitem [ref=e603]:
+              - link "FAQ" [ref=e604]:
+                - /url: /faq
+        - generic [ref=e605]:
+          - generic [ref=e606] [cursor=pointer]:
+            - heading "Expertise" [level=4] [ref=e607]
+            - img [ref=e609]
+          - list [ref=e611]:
+            - listitem [ref=e612]:
+              - link "Search Engine Optimization" [ref=e613]:
+                - /url: /services/seo
+            - listitem [ref=e614]:
+              - link "Performance Marketing" [ref=e615]:
+                - /url: /services/google-ads
+            - listitem [ref=e616]:
+              - link "Social Media Scaling" [ref=e617]:
+                - /url: /services/social-media-marketing
+            - listitem [ref=e618]:
+              - link "High-Converting Web Design" [ref=e619]:
+                - /url: /services/web-development
+            - listitem [ref=e620]:
+              - link "CRM Integration" [ref=e621]:
+                - /url: /services/crm-integration
+            - listitem [ref=e622]:
+              - link "Content Marketing" [ref=e623]:
+                - /url: /services/content-marketing
+        - generic [ref=e624]:
+          - heading "Global HQ" [level=4] [ref=e625]
+          - list [ref=e626]:
+            - listitem [ref=e627]:
+              - img [ref=e629]
+              - generic [ref=e631]: Tech Park, Bengaluru, India
+            - listitem [ref=e632]:
+              - img [ref=e634]
+              - link "+91 89048 23979" [ref=e636]:
+                - /url: tel:+918904823979
+            - listitem [ref=e637]:
+              - img [ref=e639]
+              - link "stargrowthhub@gmail.com" [ref=e641]:
+                - /url: mailto:stargrowthhub@gmail.com
+      - generic [ref=e644]:
+        - paragraph [ref=e645]: © 2026 Star Growth Hub. Designed for Growth.
+        - generic [ref=e646]:
+          - link "Privacy Policy" [ref=e647]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e648]:
+            - /url: /terms
+  - generic [ref=e649]:
+    - generic: Get a Free Enquiry!
+    - link "Chat on WhatsApp" [ref=e650]:
+      - /url: https://wa.me/918904823979?text=Hi%2C%20I'd%20like%20to%20get%20an%20enquiry%20for%20your%20digital%20marketing%20services!
+      - img [ref=e652]
+```
+
+# Test source
+
+```ts
+  1 | import { test, expect } from '@playwright/test';
+  2 | 
+  3 | test('Homepage visual regression test', async ({ page }) => {
+  4 |   await page.goto('/');
+  5 |   // Wait for framer motion animations to finish
+  6 |   await page.waitForTimeout(3000);
+> 7 |   await expect(page).toHaveScreenshot('homepage.png', { maxDiffPixels: 1000 });
+    |   ^ Error: A snapshot doesn't exist at C:\stargrowthhub\tests\visual\homepage.spec.js-snapshots\homepage-Mobile-Safari-win32.png, writing actual.
+  8 | });
+  9 | 
+```

@@ -71,6 +71,8 @@
   position: relative;
   width: 400px;
   height: 560px; /* Portrait ratio matching reference */
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .image-backdrop {
@@ -88,8 +90,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: rotate(-6deg); /* Counter-clockwise rotation matching reference */
+  transform: rotate(-6deg) translateZ(0); /* Counter-clockwise rotation matching reference */
   box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  will-change: transform;
 }
 
 .info-col-right {
@@ -237,6 +240,10 @@
     max-width: 380px;
     height: 125vw;
     max-height: 520px;
+  }
+  
+  .tilted-wrapper img {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4); /* Reduced shadow for better mobile performance */
   }
   
   .image-col-center {
